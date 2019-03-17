@@ -4,16 +4,26 @@ article{
   margin: auto;
   height: 90vh;
 }
+h4{
+  margin-left:10px;
+  margin-top:10px;
+  font-size:.8em;
+  color:#fff;
+  background-color: rgba(0, 18, 47, .5);
+  position:absolute;
+  padding:2px;
+}
 body{
     background-color: rgba(.8);
     font-family: Montserrat;
     font-size: 15px;
+  line-height:1.5em;
 }
 .backdrop{
   z-index:-3;
   background-image: url("https://images.pexels.com/photos/360698/pexels-photo-360698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   opacity: .7;
-  height: 90vh;
+  height: 120vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -22,7 +32,7 @@ body{
 
 #title{
   position:absolute;
-  margin-top: -83vh;
+  margin-top: -113vh;
   margin-left: 5%;
   padding-bottom:300px;
 }
@@ -31,7 +41,7 @@ h1{
   font-size: 50px;
   color:#fff;
   background-color: rgba(0, 18, 47, .5);
-  padding: 5px;
+  padding: 20px;
 }
 
 h2{
@@ -42,6 +52,7 @@ h2{
   padding: .5vw;
   margin-top:0;
   width: 89vw;
+  text-indent:5vw;
 }
 
 h3{
@@ -56,15 +67,17 @@ h3{
 
 #intro{
   position:absolute;
-  margin-top: -82vh;
+  margin-top: -132vh;
 }
 .absolute{
     position: absolute;
+  z-index:10;
 }
 p{
   background-color: rgba(155, 194, 255);
   padding:5px;
   width:65vw;
+  text-indent: 1em;
 }
 .t1{
   margin-left: 20vw;
@@ -103,6 +116,9 @@ p{
   margin-top:-30vh;
 }
 
+.spacing35{
+  margin-top:35vh;
+}
 .spacing-10{
   margin-top:-10vh;
 }
@@ -112,14 +128,25 @@ p{
 }
 
 
-
+.specific{
+  width:30vw;
+  margin-left: 8vw;
+}
 
 .embed{
   margin:auto;
   width:700px;
   height:500px;
 }
-#drawme1{
+.explore{
+  background-color:#fff;
+  margin-botton:1vh;
+  height: 63vh;
+  overflow:hidden;
+  width:90vw
+
+}
+.drawme1{
  width:90vw;
  oveflow: hidden;
  background-color: rgba(155, 194, 255, .1);
@@ -128,7 +155,28 @@ p{
   z-index:-3;
   background-image: url("https://images.unsplash.com/photo-1521207418485-99c705420785?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   opacity: .9;
-  height: 90vh;
+  height: 120vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.blank{
+  z-index:-3;
+  background-image: url("");
+  opacity: .9;
+  height: 40vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.blank2{
+  z-index:-3;
+  background-image: url("");
+  opacity: .9;
+  height: 60vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -142,7 +190,7 @@ p{
   z-index:-3;
   background-image: url("https://drive.google.com/uc?export=view&id=14AN8tzBoHTeuITQjmPsox2x-Ypp8KVHF");
   opacity: .9;
-  height:153vh;
+  height:183vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -159,12 +207,26 @@ p{
   padding:0;
 
 }
+
+.hide{
+  overflow:hidden;
+  width:90vw;
+}
 .full{
   width:90vw;
 }
 .sized{
   width:100%;
-  height:100%;
+  height:;
+}
+.media{
+  text-indent:0px;
+  background-color:#fff;
+  
+}
+
+.specific2{
+  height:80vh;
 }
 .backdrop4{
   z-index:-3;
@@ -176,12 +238,15 @@ p{
   background-repeat: no-repeat;
   background-size: 90vw 90vh;
 }
-
+.ad{
+  width: 15vw;
+  height:7.5vw;
+}
 .backdrop5{
   z-index:-3;
   background-image: url("https://images.unsplash.com/photo-1464036388609-747537735eab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
   opacity: .9;
-  height:120vh;
+  height:140vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -197,4 +262,45 @@ p{
 .slide_left{
   margin-left:0;
   width:45vw;
+}
+.spacing45{
+  margin-top:45vh;
+}
+.spacing-45{
+  margin-top:-45vh;
+}
+.prev{
+   text-align:right;
+  background-color:;
+  padding:.5vw;
+  width:5vw;
+  margin-left:5vw;
+  margin-top:50vh;
+  text-align:center;
+}
+.next{
+  text-align:right;
+  background-color:;
+  padding: .5vw;
+  width:6vw;
+  margin-left:79vw;
+  margin-top:50vh;
+  text-align:center;
+}
+.next:hover{
+    background-color:rgba(155, 194, 255, .5)
+}
+.prev:hover{
+    background-color:rgba(155, 194, 255, .5)
+}
+ul{
+  padding:5px;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+li{
+  padding:1px
+}
+a{
+  color:#04004E;
 }
