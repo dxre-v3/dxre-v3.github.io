@@ -1,0 +1,17 @@
+{% for d in DATA["Sheet1"] %}
+            <span class = "outer_building" id = {{d.Rank}}>
+              <h4 class = "building_name" id = "h4{{d.Rank}}">
+                {{d.Rank}}: {{d.BuildingName}} 
+              </h4>
+              <ul class = "building_list" id = "ul{{d.Rank}}">
+                {% for n in d.Breakdown %}
+                <li>{{n}}</li>
+                {% endfor %}
+              </ul>
+              <span class = "summary" id = "sum{{d.Rank}}">
+                {% for z in d.Summary %}
+                <p>{{z}}</p>
+                {% endfor %}
+              </span>
+            </span>
+          {% endfor %}

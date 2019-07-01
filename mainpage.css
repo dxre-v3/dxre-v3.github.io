@@ -1,0 +1,31 @@
+/*@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Cabin+Sketch|Domine|Fredericka+the+Great|Love+Ya+Like+A+Sister|Poiret+One|Raleway&display=swap');*/
+
+body{
+	padding: 0px;
+	margin: 0px;
+	background-color: ;
+/*	background-image: url("pictures/CKJ_1215.jpg");
+	background-size: 20vw;
+	background-repeat: no-repeat;
+*/
+}
+
+.container{
+	height:100vh;
+	background-color: yellow;
+	display: grid;
+	/*Desktop Grid*/
+	background-color: pink;
+	grid-template-columns: repeat(5, 20%);
+  	grid-template-rows: 40% 60%;
+
+}
+
+@media only screen and (max-width: 600px){
+	.container{
+	/*Mobile Grid*/
+	background-color: green;
+	grid-template-columns:100%;
+  	grid-template-rows: 30% repeat(5, 14%);
+}
+}
