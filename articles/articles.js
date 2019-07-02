@@ -29,18 +29,19 @@
 
 
 //Get the data.json file
-// var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
 //var dataFile = "data/data3.json";
-var dataFile = "articles.json";
+//var dataFile = "articles.json";
+// var requestURL = 'articles.json';
 //Read .Json File
 var request = new XMLHttpRequest();
-request.open('GET', dataFile);
+request.open('GET', requestURL);
 request.responseType = 'json';
 request.send();
 
 //when data is pulled, run these funtions:
 request.onload = function() {
-  var bData = request.response;
-  showData(bData);
-  console.log("It worked??")
+  var data = request.response;
+  // showData(bData);
+  console.log("It worked??");
 }
