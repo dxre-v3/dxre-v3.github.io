@@ -9,12 +9,45 @@ body{
 	background-color:;
 	display: grid;
 	/*Desktop Grid*/
-/*	background-color: pink;*/
 	grid-template-columns: 10% auto;
   	grid-template-rows: 20% auto;
 
 }
 
+.home{
+
+}
+.section{
+
+}
+.navbar{
+
+}
+.flex-container{
+	background-color: orange;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: 15px;
+
+}
+.description{
+	height: 200px;
+	width:45%;
+	border: black solid 2px;
+	margin-bottom: 30px;
+
+}
+.box{
+	width: 30%;
+	height: 200px;
+	border: black solid 2px;
+	margin-bottom: 30px;
+}
+
+
+/*Mobile CSS*/
 @media only screen and (max-width: 600px){
 	.container{
 	/*Mobile Grid*/
@@ -22,4 +55,13 @@ body{
 	grid-template-columns:100%;
   	grid-template-rows: 10% 20% auto;
 }
+
+.description{
+	width:100%;
+
 }
+.box{
+	width: 100%;
+}
+}
+
