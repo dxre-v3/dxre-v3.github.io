@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Montserrat|DM+Serif+Text|Fredericka+the+Great&display=swap');
+
+
 body{
 	padding: 0px;
 	margin: 0px;
-	background-color: purple;
+/*	background-color: purple;*/
+	font-family: Montserrat;
+	font-size: 15px;
+}
+.box > p{
+	font-family: DM Serif Text;
+	font-size: 30px;
 }
 
 .container{
@@ -15,16 +24,22 @@ body{
 }
 
 .home{
+	width: 100%;
+		font-family:Fredericka the Great;
+	font-size: 40px;
+	text-align: center;
 
 }
 .section{
-
+		font-family: Fredericka the Great;
+	font-size: 100px;
+		text-align: center;
 }
 .navbar{
-
+	font-family: DM Serif Text;
 }
 .flex-container{
-	background-color: orange;
+/*	background-color: orange;*/
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -32,6 +47,18 @@ body{
 	padding-top: 15px;
 
 }
+.flex-container > a{
+	color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+	width: 30%;
+	height: 200px;
+	border: black solid 2px;
+	margin-bottom: 30px;
+	}
+.box > img{
+	width: 100%;
+
+	}
 .description{
 	height: 200px;
 	width:45%;
@@ -40,11 +67,16 @@ body{
 
 }
 .box{
-	width: 30%;
+	/*width: 30%;*/
 	height: 200px;
-	border: black solid 2px;
+/*	border: red dotted 1px;*/
 	margin-bottom: 30px;
+	overflow-y: hidden;
 }
+
+/*img{
+	width: 50px;
+}*/
 
 
 /*Mobile CSS*/
