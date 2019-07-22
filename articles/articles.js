@@ -2,7 +2,7 @@
 //Get the data.json file
 var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
 //var dataFile = "data/data3.json";
-var dataFile = "https://dxre-v3.github.io/jsons/articles.json";
+var dataFile = "https://dxre-v3.github.io/universal/jsons/articles.json";
 // var requestURL = 'articles.json';
 //Read .Json File
 var request = new XMLHttpRequest();
