@@ -1,18 +1,18 @@
 {
-  "description": "It was so much easier to blame it on Them. It was bleakly depressing to think that They were Us. If it was Them, then nothing was anyone's fault. If it was us, what did that make Me? After all, I'm one of Us. I must be. I've certainly never thought of myself as one of Them. No one ever thinks of themselves as one of Them. We're always one of Us. It's Them that do the bad things",
+  "description": "A collection of published pieces",
   "content": [
     {
       "title": "Manga in the Museum",
       "date": "5.25.2019",
       "link": "https://medium.com/forty-two-by-pbm/manga-in-the-museum-b9a1558bfde",
-      "picture": "https://miro.medium.com/max/1500/1*3VRN_p5Eo2SpazVqFjrqzA.png",
+      "picture": "/pictures/golden-k.jpg",
       "quote": "In 2015, over 100,000 visitors attended two small manga exhibits at the British Museum, prompting the museum to open the Citi exhibition Manga, a six-zone exhibit on manga, its history, and forms on May 23 in the Sainsbury Exhibition Gallery, the largest and most coveted exhibition space in the museum."
     },
     {
       "title": "The timeless thrill of thrifting",
       "link": "http://www.northbynorthwestern.com/the-thrill-of-thrifting/",
       "date": "5.16.2019",
-      "picture": "http://www.northbynorthwestern.com/content/images/2019/05/IMG_3324.JPG",
+      "picture": "/pictures/hangers.png",
       "quote": " It requires patience, an eye for value and the ability to sift through the piles of miscellaneous donations that fill the racks and shelves."
     }
   ] 
