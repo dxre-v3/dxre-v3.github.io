@@ -2,7 +2,7 @@
 //Get the data.json file
 var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
 //var dataFile = "data/data3.json";
-var dataFile = "https://dxre-v3.github.io/jsons/articles.json";
+var dataFile = "https://dxre-v3.github.io/jsons/builds.json";
 // var requestURL = 'articles.json';
 //Read .Json File
 var request = new XMLHttpRequest();
@@ -17,16 +17,24 @@ request.onload = function() {
   console.log("It worked??");
 }
 
+// "description": "It was so much easier to blame it on Them. It was bleakly depressing to think that They were Us. If it was Them, then nothing was anyone's fault. If it was us, what did that make Me? After all, I'm one of Us. I must be. I've certainly never thought of myself as one of Them. No one ever thinks of themselves as one of Them. We're always one of Us. It's Them that do the bad things",
+// "content": [
+//   {
+//     "title": "Manga in the Museum",
+//     "date": "5.25.2019",
+//     "link": "https://medium.com/forty-two-by-pbm/manga-in-the-museum-b9a1558bfde",
+//     "picture": "https://miro.medium.com/max/1500/1*3VRN_p5Eo2SpazVqFjrqzA.png",
+//     "quote": "In 2015, over 100,000 visitors attended two small manga exhibits at the British Museum, prompting the museum to open the Citi exhibition Manga, a six-zone exhibit on manga, its history, and forms on May 23 in the Sainsbury Exhibition Gallery, the largest and most coveted exhibition space in the museum."
+//   },
+
 
 function loadContent(jsonObj) {
 	var contentData = jsonObj;
-
 	// Get the flexbox element
 	var flexContainer = document.getElementById("flex-container");
 	// Create the description box
 	var introduction = document.createElement("div");
 	introduction.classList.add("description");
-	introduction.classList.add("fog");
 	// Add the description text
 	introduction.textContent = contentData.description;
 	flexContainer.appendChild(introduction);
@@ -55,7 +63,6 @@ function loadContent(jsonObj) {
 	// Create a title section to hold the title:
 	var title = document.createElement("div");
 	title.classList.add("title");
-	title.classList.add("abril");
 	title.textContent = boxes[i].title;
 
 	// Create a word section to hold the "quote":
