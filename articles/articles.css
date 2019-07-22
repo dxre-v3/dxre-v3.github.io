@@ -76,7 +76,7 @@ body{
 	}
 
 .box{
-
+	color:white;
 	position: relative;
 }
 .box-background{
@@ -98,8 +98,8 @@ body{
 	position: absolute;
 	width: 100%;
 	height:250px;
-	background-color: ;
-	opacity: .3;
+	background-color: black;
+	opacity: .5;
 
 }
 
