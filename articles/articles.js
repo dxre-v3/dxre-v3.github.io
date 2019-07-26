@@ -1,9 +1,14 @@
 
 //Get the data.json file
-var requestURL = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
-//var dataFile = "data/data3.json";
-var dataFile = "https://dxre-v3.github.io/universal/jsons/articles.json";
-// var requestURL = 'articles.json';
+
+if (whichActive == "articles"){
+	var dataFile = "https://dxre-v3.github.io/universal/jsons/articles.json";
+}else if (whichActive == "data"){
+	var dataFile = "https://dxre-v3.github.io/universal/jsons/data.json";
+}else if (whichActive == "builds"){
+	var dataFile = "https://dxre-v3.github.io/universal/jsons/builds.json";
+}
+
 //Read .Json File
 var request = new XMLHttpRequest();
 request.open('GET', dataFile);
@@ -26,7 +31,7 @@ function loadContent(jsonObj) {
 	// Create the description box
 	var introduction = document.createElement("div");
 	introduction.classList.add("description");
-	introduction.classList.add("fog");
+	// introduction.classList.add("fog");
 	// Add the description text
 	introduction.textContent = contentData.description;
 	flexContainer.appendChild(introduction);
@@ -63,7 +68,7 @@ function loadContent(jsonObj) {
 	quote.classList.add("quote");
 	quote.textContent = boxes[i].quote;
 
-
+	//Append all boxes
 	box.appendChild(boxBackground);
 	box.appendChild(textBackground);
 	box.appendChild(title);
@@ -71,7 +76,6 @@ function loadContent(jsonObj) {
 	a.appendChild(box);
 	flexContainer.appendChild(a);
 }
-// var para = document.createElement("p");
-// var node = document.createTextNode("This is new.");
-// para.appendChild(node);
+
+
 }
