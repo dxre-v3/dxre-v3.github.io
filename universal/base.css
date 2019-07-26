@@ -227,10 +227,12 @@ body{
 .home{
 	grid-column-start: 1;
  	grid-row-start: 1;
+ 	border-radius: 0px;
 }
 .navbar{
 	grid-column-start: 1;
  	grid-row-start: 2;
+ 	border-radius: 0px;
 }
 /*.section{
 	font-size: 70px
