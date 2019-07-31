@@ -1,12 +1,12 @@
 {
-  "description": "It was so much easier to blame it on Them. It was bleakly depressing to think that They were Us. If it was Them, then nothing was anyone's fault. If it was us, what did that make Me? After all, I'm one of Us. I must be. I've certainly never thought of myself as one of Them. No one ever thinks of themselves as one of Them. We're always one of Us. It's Them that do the bad things",
+  "description": "Bits of HTML, CSS, JS and other languages"
   "content": [
     {
       "title": "Leaflet Map",
       "date": "5.25.2019",
-      "link": "https://medium.com/forty-two-by-pbm/manga-in-the-museum-b9a1558bfde",
-      "picture": "https://miro.medium.com/max/1500/1*3VRN_p5Eo2SpazVqFjrqzA.png",
-      "quote": "In 2015, over 100,000 visitors attended two small manga exhibits at the British Museum, prompting the museum to open the Citi exhibition Manga, a six-zone exhibit on manga, its history, and forms on May 23 in the Sainsbury Exhibition Gallery, the largest and most coveted exhibition space in the museum."
+      "link": "http://northbynorthwestern.com/buildings-ranked/",
+      "picture": "https://dxre-v3.github.io/builds/map.png",
+      "quote": "An interactive map of Northwestern built using Leaflet."
     },
     {
       "title": "Flexbox",
