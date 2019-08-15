@@ -2,6 +2,7 @@
   "description": "A collection of published pieces",
   "content": [
     {
+      "tab": "TRUE",
       "title": "Manga in the Museum",
       "date": "5.25.2019",
       "link": "https://medium.com/forty-two-by-pbm/manga-in-the-museum-b9a1558bfde",
@@ -9,11 +10,21 @@
       "quote": "In 2015, over 100,000 visitors attended two small manga exhibits at the British Museum, prompting the museum to open the Citi exhibition Manga, a six-zone exhibit on manga, its history, and forms on May 23 in the Sainsbury Exhibition Gallery, the largest and most coveted exhibition space in the museum."
     },
     {
+      "tab": "TRUE",
       "title": "The timeless thrill of thrifting",
       "link": "http://www.northbynorthwestern.com/the-thrill-of-thrifting/",
       "date": "5.16.2019",
       "picture": "https://dxre-v3.github.io/universal/pictures/hangers.png",
       "quote": " It requires patience, an eye for value and the ability to sift through the piles of miscellaneous donations that fill the racks and shelves."
+    },
+    { 
+      "tab": "FALSE",
+      "title": "All That Jazz",
+      "link": "http://dxre-v3.github.io/articles/all-that-jazz",
+      "date": "5.31.2018",
+      "picture": "https://dxre-v3.github.io/articles/pictures/jazz-bw.png",
+      "quote": "An inquiry about Northwestern's fabulous but small and little known jazz program."
+
     }
   ] 
 }

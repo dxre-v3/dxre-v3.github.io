@@ -1,0 +1,12 @@
+.entry-space{
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+}
+
+@media only screen and (max-width: 900px){
+	.entry-space{
+	grid-column-start: 1;
+ 	grid-row-start: 3;
+}
+}

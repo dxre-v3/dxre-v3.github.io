@@ -1,19 +1,21 @@
 {
-  "description": "It was so much easier to blame it on Them. It was bleakly depressing to think that They were Us. If it was Them, then nothing was anyone's fault. If it was us, what did that make Me? After all, I'm one of Us. I must be. I've certainly never thought of myself as one of Them. No one ever thinks of themselves as one of Them. We're always one of Us. It's Them that do the bad things",
+  "description": "Visualizations, applications and ideas ",
   "content": [
     {
+      "tab": "TRUE",
       "title": "Divvy Bike Data",
       "date": "6.7.2019",
       "link": "https://dxre-v3.shinyapps.io/evanston-divvy/",
-      "picture": "https://miro.medium.com/max/1500/1*3VRN_p5Eo2SpazVqFjrqzA.png",
-      "quote": "In 2018 Evanston had over 26,000 unique bike rides. What does that data look like? Take a look at this Shiny app to see."
+      "picture": "https://dxre-v3.github.io/data/pictures/divvy-graph.png",
+      "quote": "In 2018 Evanston had over 26,000 unique bike rides. Explore the trends over time with this app built with Shiny and ggplot2 in R."
     },
     {
+      "tab": "FALSE",
       "title": "California Conservation",
-      "link": "http://www.dxre-v3.github.io/data/california-conservation",
+      "link": "http://dxre-v3.github.io/data/california-conservation",
       "date": "3.17.2019",
-      "picture": "http://www.northbynorthwestern.com/content/images/2019/05/IMG_3324.JPG",
-      "quote": "California has rarely been drought free for nearly two decades. How has it been using its water during this time of drought?"
+      "picture": "https://dxre-v3.github.io/data/pictures/cali-water.png",
+      "quote": "An exploration of California's available water data using Tableau."
     }
   ] 
 }
