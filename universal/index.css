@@ -1,4 +1,31 @@
 
+
+.flex-container{
+	/*Grid Position*/
+	grid-column-start: 2;
+  	grid-column-end: 4;
+ 	grid-row-start: 2;
+
+	/*Flex Container*/
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+
+}
+
+.description{
+	height: 40px;
+	width:100%;
+
+	padding-top: 10px;
+	margin-bottom: 15px;
+
+	text-align: center;
+	font-size: 25px;
+	color:#120F0C;
+
+}
 .flex-container > a{
 	color: inherit; 
   	text-decoration: inherit; 
@@ -24,6 +51,7 @@
 	width:100%;
 	position: absolute;
 	z-index: 1;
+	background-color: black;
 }
 
 .box-background >img{
