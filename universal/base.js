@@ -43,7 +43,10 @@ function loadContent(jsonObj) {
 	// For each element in content, create a link: 
 	var a = document.createElement("a");
 	a.href = boxes[i].link;
-	a.target = "_blank";
+	if (boxes[i].tab == "TRUE"){
+		a.target = "_blank";
+	}
+	//
 	// then create a box to place everything else in.
 	var box = document.createElement("div");
 	box.classList.add("box");

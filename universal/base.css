@@ -71,6 +71,7 @@ body{
 	background-color: var(--navbar-color);
 			
 }
+
 .navbar > span{
 	display: flex;
 	height:100%;
@@ -96,7 +97,7 @@ body{
   	font-size:20px;
 }
 
-.navbar > span >p:hover{
+.navbar > span > p:hover{
 	background-color: var(--hover-color);
 	border-radius: 10px;
 }
