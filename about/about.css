@@ -9,15 +9,11 @@
 .picture{
 	width: 35%;
 	position: relative;
-/*	border-radius: 10px;
-	border: ;*/
-
 }
 .picture > img{
 	width: 100%;
 	border-radius: 10px;
 	border: solid var(--text-color) 4px;
-	/*filter: grayscale(100%);*/
 }
 .info{
 	width:55%;

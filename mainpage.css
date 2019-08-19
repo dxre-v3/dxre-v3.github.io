@@ -1,31 +1,137 @@
-/*@import url('https://fonts.googleapis.com/css?family=Bree+Serif|Cabin+Sketch|Domine|Fredericka+the+Great|Love+Ya+Like+A+Sister|Poiret+One|Raleway&display=swap');*/
-
 body{
-	padding: 0px;
+	padding:0px;
 	margin: 0px;
-	background-color: ;
-/*	background-image: url("pictures/CKJ_1215.jpg");
-	background-size: 20vw;
-	background-repeat: no-repeat;
-*/
 }
-
-.container{
-	height:100vh;
-	background-color: yellow;
+.main{
+	height: 100vh;
+	width:100%;
 	display: grid;
-	/*Desktop Grid*/
-	background-color: pink;
-	grid-template-columns: repeat(5, 20%);
-  	grid-template-rows: 40% 60%;
+	grid-template-columns: 5% 30% 30% 30% 5%;
+	grid-template-rows: 30% auto;
+}
+#background-pic{
+	grid-row-start: 2;
+	grid-column-start: 2;
+	grid-column-end: 5;
+	overflow-y: hidden;
+	background-color: black;
+}
+#b-pic{
+	width: 100%
+}
+#background-about{
+	background-color: black;
+	grid-row-start: 1;
+	grid-column-start: 2;
+	grid-column-end: 5;
+	height: 100%;
+}
+#about{
+	grid-row-start: 1;
+	grid-column-start: 2;
+	grid-column-end: 5;
+	height: 100%;
+/*	background-color: black;*/
+}
+#articles{
+	grid-row-start: 2;
+	grid-column-start: 2;
+	height: 100%;
+	}
+#builds{
+	grid-row-start: 2;
+	grid-column-start: 3;
+	height: 100%;
+}
+#data{
+	grid-row-start: 2;
+	grid-column-start: 4;
+	height: 100%;
+}
+.button-link{
+	position: relative;
+	display: table;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	/*background-color: rgba(49, 8, 33, .75);*/
+/*	background-color: var(--navbar-color)*/
 
 }
 
-@media only screen and (max-width: 600px){
-	.container{
-	/*Mobile Grid*/
-	background-color: green;
-	grid-template-columns:100%;
-  	grid-template-rows: 30% repeat(5, 14%);
+.tint-color{
+	background-color: var(--navbar-color);
+	}
+.button-link > span {
+	display: table-cell;
+  	text-align: center;
+  	vertical-align: middle;
+
 }
+
+.button-link >span:hover{
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, .1);
+/*	border: var(--base-color) solid 3px;*/
 }
+.font-med-large{
+	font-size:40px;
+}
+.walls{
+/*	border-left: var(--text-color) solid 4px;
+	border-right: var(--text-color) solid 4px;*/
+	border-left: white solid 4px;
+	border-right: white solid 4px;
+}
+
+@media only screen and (max-width: 1000px){
+	body{
+		padding-bottom: 0px;
+	}
+.main{
+	grid-template-columns: 100%;
+	grid-template-rows: 30% 25% 25% 25%;
+}
+#background-pic{
+	grid-column-start: 1;
+	grid-row-start: 2;
+	grid-row-end: 5;
+	overflow-x: hidden;
+	background-color: black;
+}
+#b-pic{
+	height:100%;
+}
+#background-about{
+	grid-column-start: 1;
+	background-color: black;
+	grid-row-start: 1;
+	height: 100%;
+}
+#about{
+	grid-column-start: 1;
+	grid-row-start: 1;
+	height: 100%;
+/*	background-color: black;*/
+}
+#articles{
+	grid-column-start: 1;
+	grid-row-start: 2;
+	}
+#builds{
+	grid-column-start: 1;
+	grid-row-start: 3;
+}
+#data{
+	grid-column-start: 1;
+	grid-row-start: 4;
+}
+
+
+.walls{
+/*	border-left: var(--text-color) solid 4px;
+	border-right: var(--text-color) solid 4px;*/
+	border-left: none;
+	border-right: none;
+}
+	}
