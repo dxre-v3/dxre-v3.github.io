@@ -9,14 +9,6 @@
       "picture": "https://dxre-v3.github.io/builds/pictures/map.png",
       "quote": "An interactive map of Northwestern built using Leaflet."
     },
-    // {
-    //   "tab": "FALSE",
-    //   "title": "Stereographic Point Clouds",
-    //   "date": "12.10.2018",
-    //   "link": "http://dxre-v3.github.io/builds/stereo",
-    //   "picture": "http://dxre-v3.github.io/builds/pictures/stereo.png",
-    //   "quote": "A short explanation and example of turning a pair of sterographic images into a three dimensional point cloud."
-    // },
     {
       "tab": "TRUE",
       "title": "CodePen",
@@ -25,5 +17,16 @@
       "picture": "http://dxre-v3.github.io/builds/pictures/codepen.png",
       "quote": "A small collection of HTML and CSS builds begining in 2018."
     }
-  ] 
+  ], 
+  "upcoming-content": [
+        {
+      "tab": "FALSE",
+      "title": "Stereographic Point Clouds",
+      "date": "12.10.2018",
+      "link": "http://dxre-v3.github.io/builds/stereo",
+      "picture": "http://dxre-v3.github.io/builds/pictures/stereo.png",
+      "quote": "A short explanation and example of turning a pair of sterographic images into a three dimensional point cloud."
+    }
+  ]
 }
+
