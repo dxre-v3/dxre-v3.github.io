@@ -109,7 +109,7 @@ body{
 	/*Mobile Grid*/
 /*	background-color: gray;*/
 	grid-template-columns: 100% ;
-  	grid-template-rows: 10% 15% auto;
+  	grid-template-rows: 10% 10% auto;
 }
 
 .home{

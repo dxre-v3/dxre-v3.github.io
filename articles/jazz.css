@@ -19,7 +19,7 @@ header {
 	padding-bottom: 0.5em;
 	height: 3vw;
   background-color: #37235E;
-	/*background-color: #501f84; /* this is NBN purple */*/
+	/*background-color: #501f84; /* this is NBN purple */
 	display: block;
 	width: 100%;
 	margin: 0 auto;
@@ -29,6 +29,13 @@ header {
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row-start: 2;
+}
+
+@media only screen and (max-width: 900px){
+  .entry-space{
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
 }
 
 #orlink{
@@ -363,7 +370,7 @@ a > img{
 
 
 /*Default links*/
-a {
+#orlink > a {
 font-family:"Rajdhani";
 	font-size: 2vw;
 	color: #220233;

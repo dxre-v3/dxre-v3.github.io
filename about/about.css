@@ -53,9 +53,14 @@
 
 }
 .about-name{
-	line-height:50px;
+	line-height:45px;
+
+}
+.info{
+	width: 90%;
 }
 .links > a{
-	width: 50%;
+	width: 25%;
+	padding: 1px 0px 1px 0px;
 }
 }
