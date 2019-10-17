@@ -1,0 +1,22 @@
+{
+  "name": "avri_website",
+  "version": "1.0.0",
+  "description": "Run Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dxre-v3/dxre-v3.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dxre-v3/dxre-v3.github.io/issues"
+  },
+  "homepage": "https://github.com/dxre-v3/dxre-v3.github.io#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
