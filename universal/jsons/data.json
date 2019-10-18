@@ -12,7 +12,7 @@
     {
       "tab": "FALSE",
       "title": "California Conservation",
-      "link": "http://dxre-v3.github.io/data/california-conservation",
+      "link": "http://dxre-v3.github.io/data/cali",
       "date": "3.17.2019",
       "picture": "https://dxre-v3.github.io/data/pictures/cali-water.png",
       "quote": "An exploration of California's available water data using Tableau."
