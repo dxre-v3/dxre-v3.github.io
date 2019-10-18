@@ -16,9 +16,7 @@
       "date": "5.10.2018",
       "picture": "https://dxre-v3.github.io/builds/pictures/codepen.png",
       "quote": "A small collection of HTML and CSS builds begining in 2018."
-    }
-  ], 
-  "upcoming-content": [
+    },  
         {
       "tab": "FALSE",
       "title": "Stereographic Point Clouds",
