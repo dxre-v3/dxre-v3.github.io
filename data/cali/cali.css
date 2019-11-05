@@ -1,9 +1,13 @@
  @import url('https://fonts.googleapis.com/css?family=Marck+Script|Montserrat|Montserrat+Alternates');
 article{
-  width:90vw;
+  width:100%;
   margin: auto;
+    color: #000;
   height: 90vh;
-}
+  font-family: Montserrat;
+  font-size: 15px;
+line-height:1.5em;
+background-color: #fff;}
 h4{
   margin-left:10px;
   margin-top:10px;
@@ -14,10 +18,7 @@ h4{
   padding:2px;
 }
 body{
-    background-color: rgba(.8);
-    font-family: Montserrat;
-    font-size: 15px;
-  line-height:1.5em;
+background-color: !important white;
 }
 .backdrop{
   z-index:-3;
@@ -73,7 +74,7 @@ h3{
     position: absolute;
   z-index:10;
 }
-p{
+article p{
   background-color: rgba(155, 194, 255, 1);
   padding:5px;
   width:65vw;
@@ -133,11 +134,7 @@ p{
   margin-left: 8vw;
 }
 
-.embed{
-  margin:auto;
-  width:700px;
-  height:500px;
-}
+
 .explore{
   background-color:#fff;
   margin-botton:1vh;
@@ -148,7 +145,7 @@ p{
 }
 .drawme1{
  width:90vw;
- oveflow: hidden;
+ overflow: hidden;
  background-color: rgba(155, 194, 255, .1);
 }
 .backdrop2{
@@ -222,7 +219,7 @@ p{
 .media{
   text-indent:0px;
   background-color:#fff;
-  
+
 }
 
 .specific2{
