@@ -12,12 +12,12 @@
     {
       "tab": "TRUE",
       "title": "CodePen",
-      "link": "https://codepen.io/collection/DBwjrP/2/",
+      "link": "https://codepen.io/collection/DBwjrP/",
       "date": "5.10.2018",
       "picture": "https://dxre-v3.github.io/builds/pictures/codepen.png",
       "quote": "A small collection of HTML and CSS builds begining in 2018."
     }
-  ],  
+  ],
 "unpublished": [
         {
       "tab": "FALSE",
@@ -29,4 +29,3 @@
     }
   ]
 }
-
