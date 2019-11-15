@@ -1,0 +1,351 @@
+---
+title: "UFO Tutorial"
+author: "Avriana Allen"
+date: "11/14/2019"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+<head>
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+body{
+font-family: Montserrat;
+}
+
+pre:not(.r) .hljs{
+color: #484848;
+}
+ol > li::marker{
+font-size: 0em;
+}
+</style>
+</head>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, warning = FALSE)
+```
+
+<h2 class = "intro">Welcome to R!</h2>
+
+We will be working online, because it is a great way to play with R without downloading it. If you want to have R with you at all times, download 
+
+* R here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/) 
+* R Studio here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/)
+
+Otherwise, navigate to [RStudio Cloud](https://rstudio.cloud/) and click *Get Started*. After you've made your account, you will be navigated to *Your Workspace*. Click the *New Project* button and wait for the *Deploying Project* bubbles to dissappear.
+
+## Purpose of this Tutorial 
+
+R is a great resource that has crazy good documentation including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such tutorials but instead to provide an inital project to try out R and R Studio. As such, it will present a streamlined process with jumping off points. If you are interested in learning more R there will be a recommended booklist [at the end](#booklist). 
+
+## Set up the enviroment 
+
+Click on *Global Options* under *Tools*. There will be four sections, *R Sessions*, *Workspace*, *History* and *Other*. Under *Workspace*, uncheck 
+ `Restore .RData into workspace at startup` and change `Save workspace to .RData on exit` to to `never`. 
+
+This means that whatever code you create will have to be rerun each time you restart your R session. This will make your code reproducable. In other words, if you run your code from top to bottom, you will get the same result every time. 
+
+## Load the Tidyverse 
+<p class = "note"> This tutorial also makes extensive use of the **Tidyverse**. </p>
+
+If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage.
+
+To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse` or run `install.packages("tidyverse")`. Next, load the package into R using `library()`. This code should go at the top of your R Script. 
+```{r library.1}
+library(tidyverse)
+```
+
+We will need two more packages `usamap` and `skimr`, so let's repeat the process.
+
+```{r library.2}
+library(maps)
+library(usmap)
+library(skimr)
+```
+
+## Loading data 
+
+We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](ADD DATA LOCATION).
+
+To get the data, you will need to upload it into your enviroment. The *upload* button will be under the *files* tab on the lower right. Find
+# the zip file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
+
+Let's read in the csv as a [tibble](https://tibble.tidyverse.org/) and store it as a variable which we will use to call it for the rest of the lab. 
+
+```{r import-data}
+ufos <- as_tibble(read_csv("ufos.csv"))
+```
+
+You should see `ufos` show up as data set in your *Global Enviroment* on the upperright of your screen. If you click on it, you can see the data.
+
+<p class = "note"> All of the functions we will be using are well documented. Either plug them into Google with the letter `r` or run them in the console with a `?`in front. (e.g. `as_tibble r` or `?as_tibble()`)</p>
+
+
+## Look at our data
+
+Let's take a look at our data. There are a couple ways to do this. 
+
+1. Look at all the data in a table.
+
+```{r view.1}
+view(ufos)
+```
+
+2. Take a quick look at all the variables.
+
+```{r view.2}
+glimpse(ufos)
+```
+
+3. Do some summary statistics.
+
+```{r view.3}
+skim(ufos)
+```
+
+Skim is a great function because it not only tells you statistics such as the mean and quartiles, but it tells you the total number of rows, if you're missing data and more!
+
+
+## Form some questions
+
+Now that we've seen what the data looks like, we can start thinking up some questions that we want to answer. Which state has the most sightings? Have the number of sightings increased overtime? Which shapes are seen most commonly? What are the average lengths of times each shape is seen? Where are the ufos being spotted?
+
+## Plot 1: Which state has the most sightings?
+
+Let's start with the data. If we write the name of the variable that holds our data set, ufos, we will get all the data, which is not exactly what we're looking for. We really want to know which state has seen the most ufos, which means we want the total number of observations for each state.
+
+To do this, we're going to use the count function. We give it a column name (or variable), and it will count up the rows (or observations) according to each value in the column. This works well with a discrete variable but would not work well with a [continious variable](https://www.youtube.com/watch?v=_yAQb8gWBpU). 
+
+```{r plot1.1}
+ufos %>% 
+  count(state)
+```
+
+We are using what is called a [pipe](https://r4ds.had.co.nz/pipes.html) :` %>% `. It essentially says, run this line and then take the information from that line and use it for the next line. So instead of writing `count(x = ufos, vars = state)` we can write it with pipes. The other thing we can see, is that we don't have to write out what each entry is in the count function if we go in order. So we can also write `count(ufos, state)`.
+
+Let's arrange the data so we can see which states have the most observations. We will use a pipe so we don't have to save our data in a variable. Since `arrange()` automatically sorts from least to greatest, we will use `desc()` to flip this.
+
+```{r plot1.2}
+ufos %>% 
+  count(state) %>% 
+  arrange(desc(n))
+```
+
+
+If we want to see all the data, we can always pipe the data into a `view()`, but lets go even farther. Let's make a graph. We are going to use [**ggplot2**](https://ggplot2.tidyverse.org/) (to learn more about it run `?ggplot2`). There are three things you need to know immediately to use **ggplot**. 
+
+1. To create a graph, you will always need to call `ggplot()` and then the type of chart you want. **ggplot** creates the base layer that you will add plots to, the geoms are the charts you will be adding. 
+2. There are two parts to each ggplot or geom function, the `aes()` or aesthetics and the other part. The data set, and anything you don't want to vary will be in the other part, while any variables you want to vary per observation will be in the `aes()`.
+3. **ggplot** takes information in order, which means that if you write your data in the right order you won't have to write out the full equality (like we do below). 
+
+```{r plot1.3}
+ufos %>% 
+  count(state) %>% 
+  ggplot(aes(x = state, y = n)) +
+  geom_bar(stat = "identity") 
+```
+
+
+
+<p class = "note">
+
+* We can pipe our data right into the plot. 
+* We use `+` as continue or add instead of `%>%` with **ggplot2**
+* `geom_bar()` requires `stat = 'identity'` to use `n` as the height of each bar. Use `?geom_bar()` to find out why.
+</p>
+
+It is pretty hard to read this chart, so let's filter our data to just look at which states had more than 1000 observations. We can just add the `filter()` between the `count()` and the plot. Let's also tack a `coord_flip()` on which renders x values along the y axis and y values along the x axis.
+  
+```{r plot1.4}
+ufos %>% 
+  count(state) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(state, n)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+```
+
+## Plot 2: How have sightings changed over time? 
+
+California is by far winning for the amount of sightings, so let's see if there is a change over time. 
+
+First, let's filter by state, and then count up the number of observations by year. We can pipe that data directly into a bar chart. 
+```{r plot2.1}
+ufos %>% 
+  filter(state == "ca") %>% 
+  count(year) %>% 
+  ggplot(aes(year, n)) +
+  geom_bar(stat = "identity") 
+```
+
+
+
+**Try making some of these other plots:** 
+
+```{r plot2.2, echo=FALSE, fig.show='hold'}
+# IL
+ufos %>% 
+  filter(state == "il") %>% 
+  count(year) %>% 
+  ggplot(aes(year, n)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "With IL data only"
+  )
+  
+  # All UFO sightings
+ufos %>% 
+  count(year) %>% 
+  ggplot(aes(year, n)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Using all the data"
+  )
+```
+
+
+
+## Plot 3: Which shapes are seen most commonly? 
+
+Take a moment to think about how to construct this before looking at the code.
+
+```{r plot3, collapse=TRUE}
+ufos %>% 
+  count(shape) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(shape, n)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+```
+
+Note: 
+
+* We added `coord_flip()` so that the terms would be readable. 
+* Having trouble understanding how to use the functions? use `?filter()`, `?count()` or `?geom_bar()` to see what's tripping you up. 
+
+
+## Plot 4: What are the average lengths of times each shape is seen?
+
+Let's find the average length of time that each shape was seen. **R** has a great function called `mean()` which we can just use. However, we will have to do a little more work than using the `count()` function.
+
+What we want to do, is group all the observations by their shape and then take the average of that number. We're going to use a `group_by()` to collect the data by shape. While this doesn't appear to change the data, it will allow us to use summarize. 
+
+If we wanted to count the number of observations in each shape using this method, we would group by `shape` and summarize using the `n()` function which ennumerates the observations. [(Nothing ever goes in those parentheses)](https://dplyr.tidyverse.org/reference/n.html). It would look like this `ufos %>% group_by(shape) %>% summarize( obs = n())`. But we are looking at the average time. 
+This means that we want keep grouping by `shape`, but instead of counting in `summarize()` we want to create a new column that will hold the mean. The variable that hold the data we want is called `duration..seconds.` The observations are in seconds, so we divided it by 60 to have the values in minutes. 
+```{r plot4, class.source = NULL}
+ufos %>% 
+  group_by(shape) %>% 
+  summarise(average = mean(duration..seconds.)/60)
+
+```
+
+Let's make a graph. What do you think the code below is doing?
+
+```{r plot4.1}
+ufos %>% 
+  group_by(shape) %>% 
+  summarise(average = mean(duration..seconds.)/60,
+            obs = n()) %>% 
+  arrange(desc(average)) %>%  
+  filter(average <= 20) %>%
+  ggplot(aes(shape, average)) +
+  geom_bar(aes(fill = obs), stat = "identity") +
+  coord_flip()
+```
+
+
+
+We changed the fill of the bars based on the number of observations. We did this by setting `fill` to obs in aes. If we took it out of `aes()`, it would not based upon `obs`. But if we want we can set it to another color like green or black. While you can use any color hex, **R** has some built in colors. Run `colors()` in the console to see. 
+
+
+## Plot 5: Where are they being seen?
+
+The next plot is a lot more complicated. We're going to make a map of where the most ufos are seen. Since each observation is recorded with the city where it was seen. We can use that to count the number of observations. But if we're actually going to plot it, we're going to need something more. 
+
+We're going to plot it by mapping each point, via it's `longitude` and `latitude`. Lets return to our friend the `count()` function, but insead of counting for each city, let's also count for each unique `longitude` and `latitude`. In theory, this wil produce the same number of observations as counting just with city, but it appears that there are multiple locations per city. We aren't going to worry about that for now. (While it is possible to fix this issue, it is beyond the scope of this tutorial.)
+
+```{r plot5}
+ufos %>% 
+  count(city, longitude, latitude)
+```
+
+
+There are way too many observations for us to graph on a map. Let's finish cleaning it and save it as a variable, like we did with the original data set. 
+
+```{r plot 5.1}
+ufo_map <- ufos %>% 
+  count(city, longitude, latitude) %>% 
+  filter(n >= 100)
+```
+
+Now that we have the data set we want, we can use it to create a scatterplot.
+
+```{r plot5.2}
+ufo_map %>% 
+  ggplot(aes(longitude, latitude)) +
+  geom_point()
+```
+
+
+This doesn't look that great, which is why we're going to use the [maps package](https://cran.r-project.org/web/packages/maps/maps.pdf) to add some borders using `borders()`.
+
+```{r plot5.3}
+ufo_map %>% 
+  ggplot(aes(longitude, latitude)) +
+  borders("state") +
+  coord_quickmap() +
+  geom_point() 
+```
+
+
+We can see where our dots are now, but they don't look very beautiful. Let's add a bit more data. We can change the `size` and `color` of our points using the number of observations in the `aes()`. 
+
+```{r plot5.4}
+ufo_map %>% 
+  ggplot(aes(longitude, latitude)) +
+  borders("state") +
+  coord_quickmap() +
+  geom_point(aes(size = n, color = n))
+```
+
+We cleaned the map up a bit more! See if you can figure out wha the extra functions are doing!
+
+```{r plot5.5}
+ufo_map %>% 
+  ggplot(aes(longitude, latitude)) +
+  borders("state") +
+  coord_quickmap() +
+  geom_point(aes(size = n, color = n), alpha = 0.7) +
+  theme_void() +
+  guides(size = FALSE) + 
+  scale_color_gradient(low = "#20dba4", high = "#0c4655") +
+  labs(
+    x = "",
+    y = "",
+    color = "Totals"
+  ) +
+  theme(
+  legend.box.margin = margin(0,10,0,0)
+  )
+```
+
+## Conclusion
+
+Congratulations on finishing the tutorial! Now see if you can think up and answer so of your own questions! Or delve a little deeper into **R** with one of these books:
+
+<span id = "booklist"></span>
+
+* Hadley Wickham Books: 
+  + [R for Data Science](https://r4ds.had.co.nz/)
+  + [Advanced R](https://adv-r.hadley.nz/)
+  + [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)
+  
+* [R for Journalists](https://learn.r-journalism.com/en/)
+* [R Cookbook, 2nd Ed](https://rc2e.com/index.html) 
+* [Another list of free online books about R](http://cmdlinetips.com/2018/01/free-online-resources-books-to-learn-r-and-data-science/)
+
+
