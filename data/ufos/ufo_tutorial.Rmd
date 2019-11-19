@@ -1,11 +1,12 @@
 ---
-title: "UFO Tutorial"
+title: "R Tutorial: UFOs"
 author: "Avriana Allen"
-date: "11/14/2019"
+date: "Last Updated 11/19/2019"
 output:
   html_document:
     toc: true
     toc_float: true
+    collapse: true
 ---
 <head>
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css">
@@ -21,6 +22,21 @@ color: #484848;
 ol > li::marker{
 font-size: 0em;
 }
+
+.title{
+width:100%;
+font-size: 3em !important;
+text-align: center;
+}
+.author {
+font-family: Montserrat;
+text-align: right;
+}
+
+.date {
+font-family: Montserrat;
+text-align: right;
+}
 </style>
 </head>
 
@@ -29,61 +45,82 @@ font-size: 0em;
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, warning = FALSE)
 ```
 
-<h2 class = "intro">Welcome to R!</h2>
-
-We will be working online, because it is a great way to play with R without downloading it. If you want to have R with you at all times, download 
-
-* R here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/) 
-* R Studio here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/)
-
-Otherwise, navigate to [RStudio Cloud](https://rstudio.cloud/) and click *Get Started*. After you've made your account, you will be navigated to *Your Workspace*. Click the *New Project* button and wait for the *Deploying Project* bubbles to dissappear.
+<h1 class = "intro">Welcome to R!</h1>
 
 ## Purpose of this Tutorial 
 
-R is a great resource that has crazy good documentation including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such tutorials but instead to provide an inital project to try out R and R Studio. As such, it will present a streamlined process with jumping off points. If you are interested in learning more R there will be a recommended booklist [at the end](#booklist). 
+R is a great resource that has extremely good documentation including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an inital project to try out **R** and **R Studio**. As such, it will present a streamlined process with jumping off points. If you are interested in learning more **R** there will be a recommended booklist [at the end](#booklist). 
 
-## Set up the enviroment 
+## RStudio Cloud
 
-Click on *Global Options* under *Tools*. There will be four sections, *R Sessions*, *Workspace*, *History* and *Other*. Under *Workspace*, uncheck 
- `Restore .RData into workspace at startup` and change `Save workspace to .RData on exit` to to `never`. 
+To complete this tutorial, you will need to create an account with [RStudio Cloud](https://rstudio.cloud/) so navigate to [their homepage ](https://rstudio.cloud/) and click *Get Started*.
 
-This means that whatever code you create will have to be rerun each time you restart your R session. This will make your code reproducable. In other words, if you run your code from top to bottom, you will get the same result every time. 
+Once you've made your account, you will be navigated to *Your Workspace*. Click the blue *New Project* button to the right of *Your Projects* and wait for the *Deploying Project* bubbles to dissappear.
+
+## R Script
+
+Under *File* highlight *New File* and select *R Script*. Go ahead and save it. This will be where we will type all our commands.
+
+## Set up the environment
+
+Open *Tools* and click on *Global Options*. There will be four sections, *R Sessions*, *Workspace*, *History* and *Other*. Under *Workspace*, uncheck 
+ `Restore .RData into workspace at startup` and change `Save workspace to .RData on exit` to `never`. Hit *Ok* to save and exit. 
+
+By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but This will make your code reproducible, allowing you to get the same results every time you run your code. 
+
+
+## Run some code
+Speaking of running code, R is a language that runs only selected code. What does that mean? It means that if your cursor is on a specific line, everything on that line is selected, and will be run. If you hightlight some of your code, only what is highlighted is selected and will be run.
+
+Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4` on the next one, Hit the *Run* button at the upper right corner of your R script and see what happens, (you can also use the keyboard shortcut *ctrl-enter*). 
+
+<p class = "note"> All of the functions we will be using are well documented. If you ever have questions, run them in the console, (lower left pane) with a `?`in front, e.g. `?help()`</p>
+
+# **R** and Data
 
 ## Load the Tidyverse 
-<p class = "note"> This tutorial also makes extensive use of the **Tidyverse**. </p>
+<p class = "note"> This tutorial makes extensive use of the **Tidyverse**. </p>
 
-If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage.
+If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
 
-To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse` or run `install.packages("tidyverse")`. Next, load the package into R using `library()`. This code should go at the top of your R Script. 
+To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse`. Next, load the package into R using `library()`. This code should go at the top of your R Script. 
 ```{r library.1}
 library(tidyverse)
 ```
 
-We will need two more packages `usamap` and `skimr`, so let's repeat the process.
+We will need two more packages `maps` and `skimr`, so let's repeat the process. 
 
 ```{r library.2}
 library(maps)
-library(usmap)
 library(skimr)
 ```
 
+<p class = "note"> We only need to install packages once, after that we can always load them for use using the `library` call. </p>
+
 ## Loading data 
 
-We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](ADD DATA LOCATION).
+We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip). **R Studio** only takes data in a zipped format, so we will actually leave the file as is.
 
-To get the data, you will need to upload it into your enviroment. The *upload* button will be under the *files* tab on the lower right. Find
-# the zip file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
+To get the data, you will need to upload it into your enviroment.  Under the *files* tab in the lower right pane, click on *upload* button. Find
+the zipped file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
 
-Let's read in the csv as a [tibble](https://tibble.tidyverse.org/) and store it as a variable which we will use to call it for the rest of the lab. 
+Let's read in the csv as a tibble, which is a slightly more flexible version of a data frame and store it as a variable which we will use to call it for the rest of the lab. 
 
 ```{r import-data}
 ufos <- as_tibble(read_csv("ufos.csv"))
 ```
 
-You should see `ufos` show up as data set in your *Global Enviroment* on the upperright of your screen. If you click on it, you can see the data.
+You will get the error:
+```
+Warning: 2 parsing failures.
+  row                col               expected actual       file
+22952 duration..seconds. no trailing characters      ` 'ufos.csv'
+29401 duration..seconds. no trailing characters      ` 'ufos.csv'`
 
-<p class = "note"> All of the functions we will be using are well documented. Either plug them into Google with the letter `r` or run them in the console with a `?`in front. (e.g. `as_tibble r` or `?as_tibble()`)</p>
+```
+You can ignore it. 
 
+You should see `ufos` show up as data set in your *Global Enviroment* on the upper right of your screen. If you click on it, you will open the data in a new tab.
 
 ## Look at our data
 
@@ -113,6 +150,8 @@ Skim is a great function because it not only tells you statistics such as the me
 ## Form some questions
 
 Now that we've seen what the data looks like, we can start thinking up some questions that we want to answer. Which state has the most sightings? Have the number of sightings increased overtime? Which shapes are seen most commonly? What are the average lengths of times each shape is seen? Where are the ufos being spotted?
+
+# Plotting
 
 ## Plot 1: Which state has the most sightings?
 
@@ -333,9 +372,19 @@ ufo_map %>%
   )
 ```
 
-## Conclusion
+# Appendix
 
-Congratulations on finishing the tutorial! Now see if you can think up and answer so of your own questions! Or delve a little deeper into **R** with one of these books:
+<p class = "intro"> Congratulations on finishing the tutorial! Now see if you can think up and answer some of your own questions! </p>
+
+## Download **R**
+Did you love **R**? You can download it onto your computer for unlimited and offline use!
+
+* **R** here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/) 
+* **R Studio** here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/)
+
+## Learn More **R**
+
+Delve a little deeper into **R** with one of these books:
 
 <span id = "booklist"></span>
 
