@@ -8,10 +8,15 @@ output:
     toc_float: true
     collapse: true
 ---
+
 <head>
+
 <link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css">
+
 <style>
+
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 body{
 font-family: Montserrat;
 }
@@ -19,6 +24,7 @@ font-family: Montserrat;
 pre:not(.r) .hljs{
 color: #484848;
 }
+
 ol > li::marker{
 font-size: 0em;
 }
@@ -37,7 +43,13 @@ text-align: right;
 font-family: Montserrat;
 text-align: right;
 }
+
+h1 > .intro{
+color: #df4e13;
+}
+
 </style>
+
 </head>
 
 
@@ -45,11 +57,11 @@ text-align: right;
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, warning = FALSE)
 ```
 
-<h1 class = "intro">Welcome to R!</h1>
+# <span class = "intro"> Welcome to R! </span>
 
-## Purpose of this Tutorial 
+## Purpose of this tutorial 
 
-R is a great resource that has extremely good documentation including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an inital project to try out **R** and **R Studio**. As such, it will present a streamlined process with jumping off points. If you are interested in learning more **R** there will be a recommended booklist [at the end](#booklist). 
+R is a great resource that has extremely good documentation, including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an inital project to try out **R** and **R Studio**. As such, it will present a streamlined process with jumping off points. If you are interested in learning more **R** there will be a recommended booklist [at the end](#booklist). 
 
 ## RStudio Cloud
 
@@ -68,8 +80,8 @@ Open *Tools* and click on *Global Options*. There will be four sections, *R Sess
 
 By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but This will make your code reproducible, allowing you to get the same results every time you run your code. 
 
-
 ## Run some code
+
 Speaking of running code, R is a language that runs only selected code. What does that mean? It means that if your cursor is on a specific line, everything on that line is selected, and will be run. If you hightlight some of your code, only what is highlighted is selected and will be run.
 
 Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4` on the next one, Hit the *Run* button at the upper right corner of your R script and see what happens, (you can also use the keyboard shortcut *ctrl-enter*). 
@@ -84,6 +96,7 @@ Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4
 If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
 
 To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse`. Next, load the package into R using `library()`. This code should go at the top of your R Script. 
+
 ```{r library.1}
 library(tidyverse)
 ```
@@ -111,6 +124,7 @@ ufos <- as_tibble(read_csv("ufos.csv"))
 ```
 
 You will get the error:
+
 ```
 Warning: 2 parsing failures.
   row                col               expected actual       file
@@ -124,32 +138,30 @@ You should see `ufos` show up as data set in your *Global Enviroment* on the upp
 
 ## Look at our data
 
-Let's take a look at our data. There are a couple ways to do this. 
-
-1. Look at all the data in a table.
+Let's take a quick look at our data.   
 
 ```{r view.1}
-view(ufos)
-```
-
-2. Take a quick look at all the variables.
-
-```{r view.2}
 glimpse(ufos)
 ```
 
-3. Do some summary statistics.
+The `glimpse()` function gives us a compressed view of the data, but here's a few things we can gather from the print out. 
 
-```{r view.3}
-skim(ufos)
-```
-
-Skim is a great function because it not only tells you statistics such as the mean and quartiles, but it tells you the total number of rows, if you're missing data and more!
-
+* We have 14 variables and 65,144 observations
+* 7 variables are related to time
+* 5 variables are related to place
+* We have 2 variables in date format, 6 in character and 6 in numerical format. 
+* We have 8 continuous variables, and 6 discrete.
 
 ## Form some questions
 
-Now that we've seen what the data looks like, we can start thinking up some questions that we want to answer. Which state has the most sightings? Have the number of sightings increased overtime? Which shapes are seen most commonly? What are the average lengths of times each shape is seen? Where are the ufos being spotted?
+Now that we've made some observations about our data, lets ask some questions: 
+
+* Which state has the most sightings? 
+* Have the number of sightings increased over time? 
+* Which shapes are seen most commonly? 
+* What are the average lengths of times each shape is seen? 
+* Where are the ufos being spotted?
+<br>
 
 # Plotting
 
