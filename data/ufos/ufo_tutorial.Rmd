@@ -48,6 +48,10 @@ h1 > .intro{
 color: #df4e13;
 }
 
+img{
+padding: 15px 0px 15px 0px;
+}
+
 </style>
 
 </head>
@@ -71,12 +75,20 @@ Once you've made your account, you will be navigated to *Your Workspace*. Click 
 
 ## R Script
 
-Under *File* highlight *New File* and select *R Script*. Go ahead and save it. This will be where we will type all our commands.
+Under *File* highlight *New File* and select *R Script*. 
+
+<img src="new_rfile.png">
+
+Go ahead and save the file. This will be where we will be executing all our commands.
+
+<img src="save_file.png">
 
 ## Set up the environment
 
 Open *Tools* and click on *Global Options*. There will be four sections, *R Sessions*, *Workspace*, *History* and *Other*. Under *Workspace*, uncheck 
  `Restore .RData into workspace at startup` and change `Save workspace to .RData on exit` to `never`. Hit *Ok* to save and exit. 
+ 
+<img src="enviroment.png">
 
 By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but This will make your code reproducible, allowing you to get the same results every time you run your code. 
 
@@ -95,20 +107,21 @@ Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4
 
 If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
 
-To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse`. Next, load the package into R using `library()`. This code should go at the top of your R Script. 
+To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse`. It will take a moment to run and will fill your console with red text. The installation will finish with <code>The downloaded source packages are in '/tmp/RtmpPmVnsD/downloaded_packages'</code>. Now we can load the package into R using `library()`. This code should go at the top of your R Script. 
 
-```{r library.1}
+```{r library.1, message=TRUE}
 library(tidyverse)
 ```
 
-We will need two more packages `maps` and `skimr`, so let's repeat the process. 
+Let's install one more package, `maps`, beginning with the installation. 
 
-```{r library.2}
+<img src = "install_package.png">
+
+```{r library.2, message=TRUE}
 library(maps)
-library(skimr)
 ```
 
-<p class = "note"> We only need to install packages once, after that we can always load them for use using the `library` call. </p>
+<p class = "note"> We only need to install packages once, after that we can always load them for use using the `library()` call. </p>
 
 ## Loading data 
 
