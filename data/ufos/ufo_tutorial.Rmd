@@ -1,7 +1,7 @@
 ---
 title: "R Tutorial: UFOs"
 author: "Avriana Allen"
-date: "Last Updated 11/19/2019"
+date: "Last Updated 11/21/2019"
 output:
   html_document:
     toc: true
@@ -90,13 +90,14 @@ Open *Tools* and click on *Global Options*. There will be four sections, *R Sess
  
 <img src="enviroment.png">
 
-By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but This will make your code reproducible, allowing you to get the same results every time you run your code. 
+By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but this will make your code reproducible, allowing you to get the same results every time you run your code. 
 
 ## Run some code
 
 Speaking of running code, R is a language that runs only selected code. What does that mean? It means that if your cursor is on a specific line, everything on that line is selected, and will be run. If you hightlight some of your code, only what is highlighted is selected and will be run.
 
 Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4` on the next one, Hit the *Run* button at the upper right corner of your R script and see what happens, (you can also use the keyboard shortcut *ctrl-enter*). 
+
 
 <p class = "note"> All of the functions we will be using are well documented. If you ever have questions, run them in the console, (lower left pane) with a `?`in front, e.g. `?help()`</p>
 
@@ -107,7 +108,7 @@ Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4
 
 If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
 
-To install the **Tidyverse**, either click on the *Packages* tab in the lower right, then the *install* button and type `tidyverse`. It will take a moment to run and will fill your console with red text. The installation will finish with <code>The downloaded source packages are in '/tmp/RtmpPmVnsD/downloaded_packages'</code>. Now we can load the package into R using `library()`. This code should go at the top of your R Script. 
+To install the **Tidyverse**, either click on the *Packages* tab in the lower right pane, then the *Install* button in the left corner. Type in `tidyverse` and click *Install*. It will take a moment to run and it will fill your console with red text. The installation will finish with <code>The downloaded source packages are in '/tmp/RtmpPmVnsD/downloaded_packages'</code>. Now we can load the package into R using `library()`. This code should go at the top of your R Script. 
 
 ```{r library.1, message=TRUE}
 library(tidyverse)
@@ -125,10 +126,12 @@ library(maps)
 
 ## Loading data 
 
-We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip). **R Studio** only takes data in a zipped format, so we will actually leave the file as is.
+We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip). **R Studio Cloud** only takes data in a zipped format, so we will upload the dataset into our environment as a zip file.
 
-To get the data, you will need to upload it into your enviroment.  Under the *files* tab in the lower right pane, click on *upload* button. Find
+Under the *Files* tab in the lower right pane, click on *Upload* button. Find
 the zipped file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
+
+<img src = "upload_file.png">
 
 Let's read in the csv as a tibble, which is a slightly more flexible version of a data frame and store it as a variable which we will use to call it for the rest of the lab. 
 
@@ -136,18 +139,13 @@ Let's read in the csv as a tibble, which is a slightly more flexible version of 
 ufos <- as_tibble(read_csv("ufos.csv"))
 ```
 
-You will get the error:
+You will get a print out that looks similar to the one below. 
 
-```
-Warning: 2 parsing failures.
-  row                col               expected actual       file
-22952 duration..seconds. no trailing characters      ` 'ufos.csv'
-29401 duration..seconds. no trailing characters      ` 'ufos.csv'`
+<img src = "error_data_load.png">
 
-```
 You can ignore it. 
 
-You should see `ufos` show up as data set in your *Global Enviroment* on the upper right of your screen. If you click on it, you will open the data in a new tab.
+You should see `ufos` show up as data set in your *Global Enviroment* on the upper right pane of your screen. If you click on it, you will open the data in a new tab.
 
 ## Look at our data
 
@@ -160,19 +158,18 @@ glimpse(ufos)
 The `glimpse()` function gives us a compressed view of the data, but here's a few things we can gather from the print out. 
 
 * We have 14 variables and 65,144 observations
-* 7 variables are related to time
-* 5 variables are related to place
+* 7 variable names are related to time
+* 5 variable names are related to place
 * We have 2 variables in date format, 6 in character and 6 in numerical format. 
-* We have 8 continuous variables, and 6 discrete.
 
 ## Form some questions
 
-Now that we've made some observations about our data, lets ask some questions: 
+Now that we've made some observations about our data, let's ask some questions: 
 
 * Which state has the most sightings? 
 * Have the number of sightings increased over time? 
 * Which shapes are seen most commonly? 
-* What are the average lengths of times each shape is seen? 
+* What's the average length of times each shape is seen? 
 * Where are the ufos being spotted?
 <br>
 
@@ -180,16 +177,22 @@ Now that we've made some observations about our data, lets ask some questions:
 
 ## Plot 1: Which state has the most sightings?
 
-Let's start with the data. If we write the name of the variable that holds our data set, ufos, we will get all the data, which is not exactly what we're looking for. We really want to know which state has seen the most ufos, which means we want the total number of observations for each state.
+Let's start with the data. We want to know which state has seen the most ufos, which means we want the total number of observations for each state.
 
-To do this, we're going to use the count function. We give it a column name (or variable), and it will count up the rows (or observations) according to each value in the column. This works well with a discrete variable but would not work well with a [continious variable](https://www.youtube.com/watch?v=_yAQb8gWBpU). 
+To do this, we're going to use the count function. We give it a column name, (a variable), and it will count the rows, (observations), according to each value in the column.
+
+<p class = "note"> This works well with a discrete variable but would not work well with a [continuous variable](https://www.youtube.com/watch?v=_yAQb8gWBpU). </p>
 
 ```{r plot1.1}
 ufos %>% 
   count(state)
 ```
 
-We are using what is called a [pipe](https://r4ds.had.co.nz/pipes.html) :` %>% `. It essentially says, run this line and then take the information from that line and use it for the next line. So instead of writing `count(x = ufos, vars = state)` we can write it with pipes. The other thing we can see, is that we don't have to write out what each entry is in the count function if we go in order. So we can also write `count(ufos, state)`.
+Throughout this tutorial we will be using what is called a pipe:` %>% `. When R runs a line of code with a pipe at the end, it takes that information and passes it on to the next line, which is also run.  If we were to write the function above without pipes, it would look like this `count(x = ufos, vars = state)`
+
+However, R is a positional language  when it comes to functions, meaning we don't have to write out what each entry is in the count function, if we give it the correct pieces in order, i.e. `count(ufos, state)`.
+
+<br>
 
 Let's arrange the data so we can see which states have the most observations. We will use a pipe so we don't have to save our data in a variable. Since `arrange()` automatically sorts from least to greatest, we will use `desc()` to flip this.
 
@@ -200,27 +203,27 @@ ufos %>%
 ```
 
 
-If we want to see all the data, we can always pipe the data into a `view()`, but lets go even farther. Let's make a graph. We are going to use [**ggplot2**](https://ggplot2.tidyverse.org/) (to learn more about it run `?ggplot2`). There are three things you need to know immediately to use **ggplot**. 
+If we want to see all the data, we can always pipe the data into a `view()`, but let's go even farther. Let's make a graph. We are going to use **ggplot2**, the part of the **Tidyverse** designed for graphing. There are three things you need to know immediately to use **ggplot**. 
 
-1. To create a graph, you will always need to call `ggplot()` and then the type of chart you want. **ggplot** creates the base layer that you will add plots to, the geoms are the charts you will be adding. 
-2. There are two parts to each ggplot or geom function, the `aes()` or aesthetics and the other part. The data set, and anything you don't want to vary will be in the other part, while any variables you want to vary per observation will be in the `aes()`.
+1. To create a graph, you will always need to call `ggplot()` and then the type of chart you want, a `geom`. `ggplot()` creates the base layer that you will add plots to, the `geoms` are the charts you will be adding. 
+2. There are two parts to each `ggplot()` or `geom` function, the `aes()` or aesthetics and the function itself. The data set, and anything you don't want to vary will be written the function, while any variables you want to vary per observation will be in the `aes()`.
 3. **ggplot** takes information in order, which means that if you write your data in the right order you won't have to write out the full equality (like we do below). 
+4. We use `+` as instead of `%>%` with **ggplot2**.
 
 ```{r plot1.3}
-ufos %>% 
+ufos %>%
   count(state) %>% 
-  ggplot(aes(x = state, y = n)) +
+  ggplot(mapping = aes(x = state, y = n)) +
   geom_bar(stat = "identity") 
 ```
 
 
 
-<p class = "note">
+<span class = "note">
 
 * We can pipe our data right into the plot. 
-* We use `+` as continue or add instead of `%>%` with **ggplot2**
 * `geom_bar()` requires `stat = 'identity'` to use `n` as the height of each bar. Use `?geom_bar()` to find out why.
-</p>
+</span>
 
 It is pretty hard to read this chart, so let's filter our data to just look at which states had more than 1000 observations. We can just add the `filter()` between the `count()` and the plot. Let's also tack a `coord_flip()` on which renders x values along the y axis and y values along the x axis.
   
@@ -291,111 +294,6 @@ Note:
 * We added `coord_flip()` so that the terms would be readable. 
 * Having trouble understanding how to use the functions? use `?filter()`, `?count()` or `?geom_bar()` to see what's tripping you up. 
 
-
-## Plot 4: What are the average lengths of times each shape is seen?
-
-Let's find the average length of time that each shape was seen. **R** has a great function called `mean()` which we can just use. However, we will have to do a little more work than using the `count()` function.
-
-What we want to do, is group all the observations by their shape and then take the average of that number. We're going to use a `group_by()` to collect the data by shape. While this doesn't appear to change the data, it will allow us to use summarize. 
-
-If we wanted to count the number of observations in each shape using this method, we would group by `shape` and summarize using the `n()` function which ennumerates the observations. [(Nothing ever goes in those parentheses)](https://dplyr.tidyverse.org/reference/n.html). It would look like this `ufos %>% group_by(shape) %>% summarize( obs = n())`. But we are looking at the average time. 
-This means that we want keep grouping by `shape`, but instead of counting in `summarize()` we want to create a new column that will hold the mean. The variable that hold the data we want is called `duration..seconds.` The observations are in seconds, so we divided it by 60 to have the values in minutes. 
-```{r plot4, class.source = NULL}
-ufos %>% 
-  group_by(shape) %>% 
-  summarise(average = mean(duration..seconds.)/60)
-
-```
-
-Let's make a graph. What do you think the code below is doing?
-
-```{r plot4.1}
-ufos %>% 
-  group_by(shape) %>% 
-  summarise(average = mean(duration..seconds.)/60,
-            obs = n()) %>% 
-  arrange(desc(average)) %>%  
-  filter(average <= 20) %>%
-  ggplot(aes(shape, average)) +
-  geom_bar(aes(fill = obs), stat = "identity") +
-  coord_flip()
-```
-
-
-
-We changed the fill of the bars based on the number of observations. We did this by setting `fill` to obs in aes. If we took it out of `aes()`, it would not based upon `obs`. But if we want we can set it to another color like green or black. While you can use any color hex, **R** has some built in colors. Run `colors()` in the console to see. 
-
-
-## Plot 5: Where are they being seen?
-
-The next plot is a lot more complicated. We're going to make a map of where the most ufos are seen. Since each observation is recorded with the city where it was seen. We can use that to count the number of observations. But if we're actually going to plot it, we're going to need something more. 
-
-We're going to plot it by mapping each point, via it's `longitude` and `latitude`. Lets return to our friend the `count()` function, but insead of counting for each city, let's also count for each unique `longitude` and `latitude`. In theory, this wil produce the same number of observations as counting just with city, but it appears that there are multiple locations per city. We aren't going to worry about that for now. (While it is possible to fix this issue, it is beyond the scope of this tutorial.)
-
-```{r plot5}
-ufos %>% 
-  count(city, longitude, latitude)
-```
-
-
-There are way too many observations for us to graph on a map. Let's finish cleaning it and save it as a variable, like we did with the original data set. 
-
-```{r plot 5.1}
-ufo_map <- ufos %>% 
-  count(city, longitude, latitude) %>% 
-  filter(n >= 100)
-```
-
-Now that we have the data set we want, we can use it to create a scatterplot.
-
-```{r plot5.2}
-ufo_map %>% 
-  ggplot(aes(longitude, latitude)) +
-  geom_point()
-```
-
-
-This doesn't look that great, which is why we're going to use the [maps package](https://cran.r-project.org/web/packages/maps/maps.pdf) to add some borders using `borders()`.
-
-```{r plot5.3}
-ufo_map %>% 
-  ggplot(aes(longitude, latitude)) +
-  borders("state") +
-  coord_quickmap() +
-  geom_point() 
-```
-
-
-We can see where our dots are now, but they don't look very beautiful. Let's add a bit more data. We can change the `size` and `color` of our points using the number of observations in the `aes()`. 
-
-```{r plot5.4}
-ufo_map %>% 
-  ggplot(aes(longitude, latitude)) +
-  borders("state") +
-  coord_quickmap() +
-  geom_point(aes(size = n, color = n))
-```
-
-We cleaned the map up a bit more! See if you can figure out wha the extra functions are doing!
-
-```{r plot5.5}
-ufo_map %>% 
-  ggplot(aes(longitude, latitude)) +
-  borders("state") +
-  coord_quickmap() +
-  geom_point(aes(size = n, color = n), alpha = 0.7) +
-  theme_void() +
-  guides(size = FALSE) + 
-  scale_color_gradient(low = "#20dba4", high = "#0c4655") +
-  labs(
-    x = "",
-    y = "",
-    color = "Totals"
-  ) +
-  theme(
-  legend.box.margin = margin(0,10,0,0)
-  )
-```
 
 # Appendix
 
