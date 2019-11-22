@@ -106,7 +106,7 @@ Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4
 ## Load the Tidyverse 
 <p class = "note"> This tutorial makes extensive use of the **Tidyverse**. </p>
 
-If you have never used the **Tidyverse** before, you are about to meet one of the best packages in R. Or group of packages. The Tidyverse contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
+If you have never used the **Tidyverse** before, you are about to meet one of the best packages in **R**. Or group of packages. The **Tidyverse** contains multiple packages designed to clean data, wrangle it and graph it. The packages are compatible with each other, so you can easily move through each stage of cleaning, plotting and presenting.
 
 To install the **Tidyverse**, either click on the *Packages* tab in the lower right pane, then the *Install* button in the left corner. Type in `tidyverse` and click *Install*. It will take a moment to run and it will fill your console with red text. The installation will finish with <code>The downloaded source packages are in '/tmp/RtmpPmVnsD/downloaded_packages'</code>. Now we can load the package into R using `library()`. This code should go at the top of your R Script. 
 
@@ -114,7 +114,7 @@ To install the **Tidyverse**, either click on the *Packages* tab in the lower ri
 library(tidyverse)
 ```
 
-Let's install one more package, `maps`, beginning with the installation. 
+Let's load one more package, `maps`, beginning with the installation. 
 
 <img src = "install_package.png">
 
@@ -169,8 +169,7 @@ Now that we've made some observations about our data, let's ask some questions:
 * Which state has the most sightings? 
 * Have the number of sightings increased over time? 
 * Which shapes are seen most commonly? 
-* What's the average length of times each shape is seen? 
-* Where are the ufos being spotted?
+
 <br>
 
 # Plotting
