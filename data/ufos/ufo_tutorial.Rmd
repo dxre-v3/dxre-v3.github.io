@@ -49,6 +49,7 @@ color: #df4e13;
 }
 
 img{
+display: inline-block;
 padding: 15px 0px 15px 0px;
 }
 
@@ -178,7 +179,7 @@ Now that we've made some observations about our data, let's ask some questions:
 
 Let's start with the data. We want to know which state has seen the most ufos, which means we want the total number of observations for each state.
 
-To do this, we're going to use the count function. We give it a column name, (a variable), and it will count the rows, (observations), according to each value in the column.
+To do this, we're going to use the count function. If we give it a column name, (a variable), and it will count the rows, (observations), according to each unique value in the column.
 
 <p class = "note"> This works well with a discrete variable but would not work well with a [continuous variable](https://www.youtube.com/watch?v=_yAQb8gWBpU). </p>
 
@@ -187,10 +188,10 @@ ufos %>%
   count(state)
 ```
 
-Throughout this tutorial we will be using what is called a pipe:` %>% `. When R runs a line of code with a pipe at the end, it takes that information and passes it on to the next line, which is also run.  If we were to write the function above without pipes, it would look like this `count(x = ufos, vars = state)`
+<div class = "note"> Throughout this tutorial we will be using what is called a pipe:` %>% `. When R runs a line of code with a pipe at the end, it takes that information and passes it on to the next line, which is also run.  If we were to write the function above without pipes, it would look like this `count(x = ufos, vars = state)`.
 
 However, R is a positional language  when it comes to functions, meaning we don't have to write out what each entry is in the count function, if we give it the correct pieces in order, i.e. `count(ufos, state)`.
-
+</div>
 <br>
 
 Let's arrange the data so we can see which states have the most observations. We will use a pipe so we don't have to save our data in a variable. Since `arrange()` automatically sorts from least to greatest, we will use `desc()` to flip this.
@@ -202,12 +203,12 @@ ufos %>%
 ```
 
 
-If we want to see all the data, we can always pipe the data into a `view()`, but let's go even farther. Let's make a graph. We are going to use **ggplot2**, the part of the **Tidyverse** designed for graphing. There are three things you need to know immediately to use **ggplot**. 
+If we want to see all the data, we can always pipe the data into a `view()`, but let's go even farther. Let's make a graph. We are going to use **ggplot2**, the part of the **Tidyverse** designed for graphing. There are four things you need to know immediately to use **ggplot**. 
 
-1. To create a graph, you will always need to call `ggplot()` and then the type of chart you want, a `geom`. `ggplot()` creates the base layer that you will add plots to, the `geoms` are the charts you will be adding. 
+1. To create a graph, you will always need to call `ggplot()` and then the type of chart you want, a `geom`. `ggplot()` creates the base layer that you will add plots to; the `geoms` are the charts you will be adding. 
 2. There are two parts to each `ggplot()` or `geom` function, the `aes()` or aesthetics and the function itself. The data set, and anything you don't want to vary will be written the function, while any variables you want to vary per observation will be in the `aes()`.
 3. **ggplot** takes information in order, which means that if you write your data in the right order you won't have to write out the full equality (like we do below). 
-4. We use `+` as instead of `%>%` with **ggplot2**.
+4. We use `+` as instead of `%>%` between lines of **ggplot2**.
 
 ```{r plot1.3}
 ufos %>%
@@ -218,11 +219,10 @@ ufos %>%
 
 
 
-<span class = "note">
-
-* We can pipe our data right into the plot. 
+<div class = "note">
+* We can pipe our data right into the plot.
 * `geom_bar()` requires `stat = 'identity'` to use `n` as the height of each bar. Use `?geom_bar()` to find out why.
-</span>
+</div>
 
 It is pretty hard to read this chart, so let's filter our data to just look at which states had more than 1000 observations. We can just add the `filter()` between the `count()` and the plot. Let's also tack a `coord_flip()` on which renders x values along the y axis and y values along the x axis.
   
@@ -252,7 +252,7 @@ ufos %>%
 
 **Try making some of these other plots:** 
 
-```{r plot2.2, echo=FALSE, fig.show='hold'}
+```{r plot2.2, echo=FALSE, out.width='50%', fig.show='hold'}
 # IL
 ufos %>% 
   filter(state == "il") %>% 
@@ -260,16 +260,16 @@ ufos %>%
   ggplot(aes(year, n)) +
   geom_bar(stat = "identity") +
   labs(
-    title = "With IL data only"
+    title = "Data for IL only"
   )
-  
   # All UFO sightings
 ufos %>% 
   count(year) %>% 
+  filter(year >= 1980) %>% 
   ggplot(aes(year, n)) +
   geom_bar(stat = "identity") +
   labs(
-    title = "Using all the data"
+    title = "Data for all states since 1980"
   )
 ```
 
@@ -277,9 +277,9 @@ ufos %>%
 
 ## Plot 3: Which shapes are seen most commonly? 
 
-Take a moment to think about how to construct this before looking at the code.
+As before, we count by the variable we want to see. Since there are a lot of shapes, we are only looking at the observations above 1,000. We added `coord_flip()` so that the terms would be readable. 
 
-```{r plot3, collapse=TRUE}
+```{r plot3 }
 ufos %>% 
   count(shape) %>% 
   filter(n >= 1000) %>% 
@@ -288,11 +288,78 @@ ufos %>%
   coord_flip()
 ```
 
-Note: 
+<p class = "note"> Having trouble understanding how to use the functions? use `?filter()`, `?count()` or `?geom_bar()` to see what's tripping you up. 
+</p>
 
-* We added `coord_flip()` so that the terms would be readable. 
-* Having trouble understanding how to use the functions? use `?filter()`, `?count()` or `?geom_bar()` to see what's tripping you up. 
+## Styling Plots
 
+Now that we can make some simple barplots, let's make them look a little cooler. 
+
+**First**, let's arrange the shapes by the number of observations. `reorder()` will take the variable we want to reorder, and the variable we want to sort it by, in that order.  
+
+```{r plot3.2}
+ufos %>% 
+  count(shape) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(reorder(shape, n), n)) +
+  geom_bar(stat = "identity") +
+  coord_flip()
+```
+
+**Next**, let's change the color of the bars. We can set the `fill` of each bar, `color` (which for bar charts changes the color of the outline), and `alpha` or opacity.
+
+```{r plot3.3}
+ufos %>% 
+  count(shape) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(reorder(shape, n), n)) +
+  geom_bar(stat = "identity", 
+           color = "black",
+           fill = "#df4e13",
+           alpha = 0.8) +
+  coord_flip()
+```
+
+<p class = "note"> While `fill` and `color` can take any hex code, **R** also has named colors. To see the complete list, run `color()`.</p>
+
+**Next**, let's add some text to our graph. Remember that because we are flipping the x and y position with `coord_flip` we will need to label what appears to be `y` with `x`. 
+
+```{r plot3.1}
+ufos %>% 
+  count(shape) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(reorder(shape, n), n)) +
+  geom_bar(stat = "identity", 
+           color = "black",
+           fill = "#df4e13",
+           alpha = 0.8) +
+  coord_flip() +
+  labs(
+    x = "Shape",
+    y = "Quantity of observations", 
+    title = "UFO Shapes",
+    caption = "Observations beginning in the 1940s. Data set from Kaggle")
+```
+
+**Finally**, let's change the theme of the graph. `theme_minimal` is a great choice, but there are quite a few. If you want to get even options, install and load the `ggthemes()` package.
+
+```{r plot3.4}
+ufos %>% 
+  count(shape) %>% 
+  filter(n >= 1000) %>% 
+  ggplot(aes(reorder(shape, n), n)) +
+  geom_bar(stat = "identity", 
+           color = "black",
+           fill = "#df4e13",
+           alpha = 0.8) +
+  coord_flip() +
+  labs(
+    x = "Shape",
+    y = "Quantity of observations", 
+    title = "UFO Shapes",
+    caption = "Observations beginning in the 1940s. Data set from Kaggle") +
+  theme_minimal()
+```
 
 # Appendix
 
