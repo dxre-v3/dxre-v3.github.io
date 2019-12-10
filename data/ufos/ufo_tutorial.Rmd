@@ -1,7 +1,7 @@
 ---
 title: "R Tutorial: UFOs"
 author: "Avriana Allen"
-date: "Last Updated 11/21/2019"
+date: "Last Updated: Dec. 10, 2019"
 output:
   html_document:
     toc: true
