@@ -157,7 +157,7 @@ glimpse(ufos)
    
 <br>
 
-# Time series:  
+# Time series 
 
 Being able to work with time is an important skill when it comes to data. It also tends to work well with bar charts. The plots below will start with some basic graphs over time and move into specific filtering. These plots will be using some styling elements, and each will have a theme. 
 
@@ -175,7 +175,7 @@ ufos %>%
 
 **Hint**: Look at the names of the variables on the x and y axis. How can we get our bar chart to have those names? 
 
-<p class="note">Want to add labels to your graphs? Use `labs()` with `title`, `subtitle`, `caption`, `x` and `y`.</p>
+<p class="note">Want to add labels to your graphs? Use `labs()` with `title`, `subtitle`, `caption`, `x` and `y`. Want to change the color of your graph? Use any hex code or a name from `colors()`.</p>
 
 
 ## Observations since 1975
@@ -231,6 +231,7 @@ ufos %>%
 
 
 
+
 ## By Month
 ```{r t5}
 ufos %>% 
@@ -245,19 +246,19 @@ ufos %>%
 ```
 
 
-## By Month between 2000 and 2005
+## By Month between 2000 and 2002
 ```{r t6}
 ufos %>% 
   filter(
-    between(year, 2000, 2003)
+    between(year, 2000, 2002)
   ) %>% 
   ggplot(aes(as.factor(month))) +
   geom_bar(aes(fill = as.factor(year)), position = "dodge") +
   theme_fivethirtyeight() +
   labs(
-    subtitle = "Observations by Month and year between 2000 and 2003",
+    subtitle = "Observations by Month and year between 2000 and 2002",
     caption = "Theme: theme_fivethirtyeight
-    Fill: scale_fill_fivethirtyeight()"
+    Fill: scale_fill_fivethirtyeight"
   ) +
   scale_fill_fivethirtyeight()
 ```
@@ -336,15 +337,16 @@ ufos_shapes %>%
   geom_bar(aes(fill = shape)) +
   labs(
     subtitle = "States with more than 1K UFO sightings",
-    caption = "Theme: theme_gdocs"
+    caption = "Theme: theme_gdocs 
+    Fill: scale_fill_gdocs"
   ) +
   theme_gdocs() +
-  scale_fill_gdocs()+
+  scale_fill_gdocs() +
   coord_flip()
 ```
 
 
-# Number of Shapes in states with less than 500 UFO sightings
+## Number of Shapes in states with less than 500 UFO sightings
 
 ```{r ss4}
 ufos_shapes %>% 
@@ -353,7 +355,8 @@ ufos_shapes %>%
   geom_bar(aes(fill = shape)) +
   labs(
     subtitle = "States with less than 500 UFO sightings",
-    caption = "Theme: theme_gdocs"
+    caption = "Theme: theme_gdocs
+    Fill: scale_fill_gdocs"
   ) +
   theme_gdocs() +
   scale_fill_gdocs()+
@@ -362,7 +365,7 @@ ufos_shapes %>%
 
 
 
-# Colored by shapes
+## Colored by shapes
 ```{r ss5}
 ufos_shapes %>% 
   filter(  shape == "light" | 
@@ -373,7 +376,8 @@ ufos_shapes %>%
   geom_bar(aes(fill = shape)) +
   labs(
     subtitle = "States with less than 500 UFO sightings",
-    caption = "Theme: theme_tufte",
+    caption = "Theme: theme_tufte
+    Fill: scale_fill_brewer(type = 'qual')",
     x = "State",
     y = "Observations"
   ) +
@@ -384,7 +388,7 @@ ufos_shapes %>%
   coord_flip()
 ```
 
-**Hint**: `?facet_wrap()`; (`theme(legend.position = "none")`)[https://www.datanovia.com/en/blog/how-to-remove-legend-from-a-ggplot/#ggplot-with-no-legend]{target="_blank"}
+**Hint**: Use `theme(legend.position = "none")` to remove the legend and take a look at `?facet_wrap()`.
 
 # Calculations 
 Another type of graph you will want to use is had calculated values. The best way to do this is with summarize:
@@ -410,7 +414,7 @@ ufos_shapes %>%
   )
 ```
 
-**Hint**: Use `summarise` and `mean`
+**Hint**: Use `summarise()` and `mean()`
 
 # Appendix
 
