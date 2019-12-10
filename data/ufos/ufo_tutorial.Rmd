@@ -66,13 +66,13 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, warning = FAL
 
 ## Purpose of this tutorial 
 
-R is a great resource that has extremely good documentation, including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an inital project to try out **R** and **R Studio**. As such, it will present a streamlined process with jumping off points. If you are interested in learning more **R** there will be a recommended booklist [at the end](#booklist). 
+R is a great resource that has extremely good documentation, including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an initial project to try out **R** and **R Studio**. As such, it will present a streamlined process with jumping off points. If you are interested in learning more **R** there will be a recommended book list [at the end](#booklist). 
 
-## RStudio Cloud
+## R Studio Cloud
 
-To complete this tutorial, you will need to create an account with [RStudio Cloud](https://rstudio.cloud/) so navigate to [their homepage ](https://rstudio.cloud/) and click *Get Started*.
+To complete this tutorial, you will need to create an account with [RStudio Cloud](https://rstudio.cloud/){target="_blank"} so navigate to [their homepage ](https://rstudio.cloud/){target="_blank"} and click *Get Started*.
 
-Once you've made your account, you will be navigated to *Your Workspace*. Click the blue *New Project* button to the right of *Your Projects* and wait for the *Deploying Project* bubbles to dissappear.
+Once you've made your account, you will be navigated to *Your Workspace*. Click the blue *New Project* button to the right of *Your Projects* and wait for the *Deploying Project* bubbles to disappear.
 
 ## R Script
 
@@ -95,7 +95,7 @@ By changing these options, we are making it a little harder to pick up where you
 
 ## Run some code
 
-Speaking of running code, R is a language that runs only selected code. What does that mean? It means that if your cursor is on a specific line, everything on that line is selected, and will be run. If you hightlight some of your code, only what is highlighted is selected and will be run.
+Speaking of running code, R is a language that runs only selected code. What does that mean? It means that if your cursor is on a specific line, everything on that line is selected, and will be run. If you highlight some of your code, only what is highlighted is selected and will be run.
 
 Try it out by typing `2 + 2` on the first line of your blank R script and `4 + 4` on the next one, Hit the *Run* button at the upper right corner of your R script and see what happens, (you can also use the keyboard shortcut *ctrl-enter*). 
 
@@ -127,7 +127,7 @@ library(maps)
 
 ## Loading data 
 
-We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world). The original data set can be found [here](https://github.com/planetsig/ufo-reports). We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip). **R Studio Cloud** only takes data in a zipped format, so we will upload the dataset into our environment as a zip file.
+We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world){target="_blank"}. The original data set can be found [here](https://github.com/planetsig/ufo-reports){target="_blank"}. We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip){target="_blank"}. **R Studio Cloud** only takes data in a zipped format, so we will upload the data set into our environment as a zip file.
 
 Under the *Files* tab in the lower right pane, click on *Upload* button. Find
 the zipped file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
@@ -146,7 +146,7 @@ You will get a print out that looks similar to the one below.
 
 You can ignore it. 
 
-You should see `ufos` show up as data set in your *Global Enviroment* on the upper right pane of your screen. If you click on it, you will open the data in a new tab.
+You should see `ufos` show up as data set in your *Global Environment* on the upper right pane of your screen. If you click on it, you will open the data in a new tab.
 
 ## Look at our data
 
@@ -181,14 +181,14 @@ Let's start with the data. We want to know which state has seen the most ufos, w
 
 To do this, we're going to use the count function. If we give it a column name, (a variable), and it will count the rows, (observations), according to each unique value in the column.
 
-<p class = "note"> This works well with a discrete variable but would not work well with a [continuous variable](https://www.youtube.com/watch?v=_yAQb8gWBpU). </p>
+<p class = "note"> This works well with a discrete variable but would not work well with a [continuous variable](https://www.youtube.com/watch?v=_yAQb8gWBpU){target="_blank"}. </p>
 
 ```{r plot1.1}
 ufos %>% 
   count(state)
 ```
 
-<div class = "note"> Throughout this tutorial we will be using what is called a pipe:` %>% `. When R runs a line of code with a pipe at the end, it takes that information and passes it on to the next line, which is also run.  If we were to write the function above without pipes, it would look like this `count(x = ufos, vars = state)`.
+<div class = "note"> Throughout this tutorial we will be using what is called a [pipe](https://uc-r.github.io/pipe#pipe--operator){target="_blank"} `%>%`. When R runs a line of code with a pipe at the end, it takes that information and passes it on to the next line, which is also run.  If we were to write the function above without pipes, it would look like this `count(x = ufos, vars = state)`.
 
 However, R is a positional language  when it comes to functions, meaning we don't have to write out what each entry is in the count function, if we give it the correct pieces in order, i.e. `count(ufos, state)`.
 </div>
@@ -293,7 +293,7 @@ ufos %>%
 
 ## Styling Plots
 
-Now that we can make some simple barplots, let's make them look a little cooler. 
+Now that we can make some simple bar plots, let's make them look a little cooler. 
 
 **First**, let's arrange the shapes by the number of observations. `reorder()` will take the variable we want to reorder, and the variable we want to sort it by, in that order.  
 
@@ -368,22 +368,21 @@ ufos %>%
 ## Download **R**
 Did you love **R**? You can download it onto your computer for unlimited and offline use!
 
-* **R** here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/) 
-* **R Studio** here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/)
+* **R** here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/){target="_blank"}
+* **R Studio** here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/){target="_blank"}
 
 ## Learn More **R**
-
-Delve a little deeper into **R** with one of these books:
+Test your skills with our [Bar Chart Challenge](https://dxre-v3.github.io/data/ufos/ufo_bar_challenge) or delve a little deeper into **R** with one of these books:
 
 <span id = "booklist"></span>
 
 * Hadley Wickham Books: 
-  + [R for Data Science](https://r4ds.had.co.nz/)
-  + [Advanced R](https://adv-r.hadley.nz/)
-  + [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html)
+  + [R for Data Science](https://r4ds.had.co.nz/){target="_blank"}
+  + [Advanced R](https://adv-r.hadley.nz/){target="_blank"}
+  + [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html){target="_blank"}
   
-* [R for Journalists](https://learn.r-journalism.com/en/)
-* [R Cookbook, 2nd Ed](https://rc2e.com/index.html) 
-* [Another list of free online books about R](http://cmdlinetips.com/2018/01/free-online-resources-books-to-learn-r-and-data-science/)
+* [R for Journalists](https://learn.r-journalism.com/en/){target="_blank"}
+* [R Cookbook, 2nd Ed](https://rc2e.com/index.html) {target="_blank"}
+* [Another list of free online books about R](http://cmdlinetips.com/2018/01/free-online-resources-books-to-learn-r-and-data-science/){target="_blank"}
 
 
