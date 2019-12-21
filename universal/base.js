@@ -40,7 +40,7 @@ function loadContent(jsonObj) {
 	var boxes = contentData.content;
 
 	for (var i = 0; i < boxes.length; i++){
-	// For each element in content, create a link: 
+	// For each element in content, create a link:
 	var a = document.createElement("a");
 	a.href = boxes[i].link;
 	if (boxes[i].tab == "TRUE"){
@@ -55,7 +55,7 @@ function loadContent(jsonObj) {
 	boxBackground.classList.add("box-background");
 	//Create img to be the background:
 	var img = document.createElement("img");
-	img.src = boxes[i].picture; 
+	img.src = boxes[i].picture;
 	boxBackground.appendChild(img);
 	//Creat a text background:
 	var textBackground = document.createElement("div");
@@ -72,14 +72,14 @@ function loadContent(jsonObj) {
 	quote.textContent = boxes[i].quote;
 
 	//Append all boxes
-	box.appendChild(boxBackground);
-	box.appendChild(textBackground);
 	box.appendChild(title);
 	box.appendChild(quote);
+	box.appendChild(boxBackground);
+	box.appendChild(textBackground);
+
 	a.appendChild(box);
 	flexContainer.appendChild(a);
 }
 
 
 }
-

@@ -18,8 +18,9 @@
 .info{
 	width:55%;
 	line-height: 17px;
-	color: var(--text-color);
-
+}
+p.abril{
+	color:var(--text-color);
 }
 
 .links{

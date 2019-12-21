@@ -9,12 +9,20 @@
   --home-color:rgba(38, 110, 111, .5);
   --navbar-color: rgba(38, 110, 111, .5);*/
     /*current theme*/
-  --base-color: #fff3cf;
+  /* --base-color: #fff3cf;
   --text-color: #31081F;
   --hover-color:rgba(104, 53, 49);
   --home-color:rgba(104, 53, 49, .75);
   --navbar-color: rgba(104, 53, 49, .75);
-  --text: #FFFBF1;
+  --text: #FFFBF1; */
+
+/* Dec 2019 Theme */
+  --text-color:#ee6c4d;
+  --hover-color: #ee6c4d;
+  --home-color: rgba(243, 141, 104, .75);
+  --navbar-color: rgba(243, 141, 104, .75);
+  --text: #f2f3ae;
+  --base-color: #1e1e24;
 }
 
 
