@@ -2,6 +2,15 @@
   "description": "Bits of HTML, CSS, JS and other languages",
   "content": [
     {
+    "tab" : "TRUE",
+    "title": "Political Quiz",
+    "date": "1.24.2020",
+    "link": "http://northbynorthwestern.com/political-quiz-2020/",
+    "picture": "https://dxre-v3.github.io/builds/pictures/quiz.png",
+    "quote": "A political quiz created with NBN Interactive Staff and the Political Section of NBN."
+
+    },
+    {
       "tab" : "TRUE",
       "title": "Scrolling Webpage",
       "date": "12.23.2019",
