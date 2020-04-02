@@ -17,12 +17,12 @@
   --text: #FFFBF1; */
 
 /* Dec 2019 Theme */
-  --text-color:#ee6c4d;
+  /* --text-color:#ee6c4d;
   --hover-color: #ee6c4d;
   --home-color: rgba(243, 141, 104, .75);
   --navbar-color: rgba(243, 141, 104, .75);
   --text: #f2f3ae;
-  --base-color: #1e1e24;
+  --base-color: #1e1e24; */
 }
 
 
@@ -105,6 +105,7 @@ body{
 
 .font-med-large{
 	font-size:40px;
+  line-height: 45px;
 }
 
 
