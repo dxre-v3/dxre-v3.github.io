@@ -1,0 +1,117 @@
+div, section, article, nav, footer{
+
+}
+
+.grid-display{
+  display: grid;
+  grid-template-columns: repeat(6, 16.6%);
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+  "title title title title title title"
+  " . nav-links nav-links animation animation . "
+  "footer footer footer footer footer footer ";
+}
+
+.title{
+  grid-area: title;
+  font-family: Raleway;
+  text-align: center;
+  padding: 10px;
+  width: 67%;
+  margin-left: 16.5%;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 3px var(--color-brown) solid;
+}
+
+.title:hover{
+  background-color: white;
+  color: var(--color-brown);
+
+}
+
+.name{
+    font-size: 75px;
+}
+
+nav{
+  grid-area: nav-links;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.label{
+  padding: 10px;
+  margin: 10px;
+  margin-left: 5%;
+  border-radius: 10px;
+  text-align: center;
+  width:65%;
+  border: solid var(--color-white) 3px;
+}
+
+.label h1{
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.label p{
+  padding: 10px;
+}
+
+article{
+  grid-area: animation;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer{}
+
+  @media only screen and (max-width: 1100px) {
+
+    .grid-display{
+      grid-template-areas:
+      "title title title title title title"
+      " nav-links nav-links nav-links animation animation animation "
+      "footer footer footer footer footer footer ";
+    }
+    .title{
+        padding: 1%;
+        width: 98%;
+        border-radius: 0px;
+        margin-left: 0px;
+        border: none;
+    }
+  }
+  @media only screen and (max-width: 700px) {
+    .grid-display{
+      grid-template-columns: 100%;
+      grid-template-rows: auto auto auto auto;
+      grid-template-areas:
+
+      "title"
+      "animation"
+      "nav-links"
+
+      "footer";
+    }
+  .name{
+        font-size: var(--large);
+        padding: 5px;
+    }
+  h5{
+    font-size: var(--small);
+    padding: 5px 10px;
+  }
+  h1 {
+    font-size: var(--medium-plus);
+  }
+  body{
+    font-size: var(--small)
+  }
+  }

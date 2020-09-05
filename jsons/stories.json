@@ -1,0 +1,38 @@
+{
+  "description": "A collection of published pieces",
+  "content": [
+    {
+      "tab": true,
+      "title": "Manga in the Museum",
+      "date": "5.25.2019",
+      "link": "https://medium.com/forty-two-by-pbm/manga-in-the-museum-b9a1558bfde",
+      "picture": "https://dxre-v3.github.io/articles/pictures/golden-k.jpg",
+      "quote": "In 2015, over 100,000 visitors attended two small manga exhibits at the British Museum, prompting the museum to open a six-zone exhibit on manga, its history, and forms on May 23, 2019."
+    },
+    {
+      "tab": true,
+      "title": "The timeless thrill of thrifting",
+      "link": "http://www.northbynorthwestern.com/the-thrill-of-thrifting/",
+      "date": "5.16.2019",
+      "picture": "https://dxre-v3.github.io/articles/pictures/hangers.png",
+      "quote": " It requires patience, an eye for value and the ability to sift through the piles of miscellaneous donations that fill the racks and shelves."
+    },
+    {
+      "tab": true,
+      "title": "Stereographic Point Clouds",
+      "date": "12.10.2018",
+      "link": "https://studio.knightlab.com/results/2018-12-15-stereographs-to-point-clouds/",
+      "picture": "https://dxre-v3.github.io/builds/pictures/stereo.png",
+      "quote": "A tutorial on turning a stereographic pair of images into a three dimensional point cloud."
+    },
+    {
+      "tab": false,
+      "title": "All That Jazz",
+      "link": "http://dxre-v3.github.io/articles/all-that-jazz",
+      "date": "5.31.2018",
+      "picture": "https://dxre-v3.github.io/articles/pictures/jazz-bw.png",
+      "quote": "An inquiry about Northwestern's fabulous but small and little known jazz program."
+
+    }
+  ]
+}
