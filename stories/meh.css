@@ -1,0 +1,32 @@
+
+body{
+  background: #222222
+}
+.introduction{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D0D0D0;
+}
+.introduction p{
+  padding:20px;
+  color: #222222;
+  border-left: solid 5px #D0D0D0;
+  line-height: var(--medium-plus);
+  color: #D0D0D0;
+  width: 300px;
+}
+
+
+
+
+@media only screen and (max-width: 1350px) {
+  .introduction p{
+    margin: 40px 0px 20px 0px;
+    width: 85%;
+    max-width: 600px;
+    border-left: solid 0px #D0D0D0;
+    border-bottom: dotted 3px #D0D0D0;
+    border-top: dotted 3px #D0D0D0;
+  }
+}

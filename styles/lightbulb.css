@@ -1,0 +1,91 @@
+#lightbulb-canvas{
+  width:300px;
+  height: 460px;
+  display: block;
+}
+#upper-bulb{
+  position: absolute;
+  margin-left: 22px;
+  margin-top: 30px;
+  width: 250px;
+  border-radius: 50%;
+  height: 300px;
+  /* background-color: green; */
+  border: solid var(--color-brown)  3px ;
+}
+#lower-bulb{
+  position: absolute;
+  margin-left: 85.5px;
+  margin-top:313px;
+  width:123px;
+  height: 45px;
+  background: white;
+  border: solid var(--color-brown) 3px ;
+  border-top-width: 0px;
+  border-radius: 1px;
+}
+
+#bulb-base{
+  position: absolute;
+  margin-left: 97.5px;
+  margin-top:375px;
+  width:100px;
+  height: 25px;
+  background: white;
+  border: solid var(--color-brown) 2.5px ;
+  border-radius: 2px;
+}
+
+#bulb-tip{
+  position: absolute;
+  margin-left: 118px;
+  margin-top:415px;
+  width:60px;
+  height: 15px;
+  background: white;
+  border: solid var(--color-brown) 2px ;
+  border-radius: 2px;
+}
+
+
+
+.square{
+  width: 10px;
+  height: 10px;
+}
+
+.round{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+svg{
+  position: absolute;
+
+}
+
+#lightbulb{
+  position: absolute;
+  margin-left: 25px;
+  margin-top: 30px;
+  width: 250px;
+  border-radius: 50%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.item{
+  padding: 1%;
+  margin:1%;
+}
+
+.active{
+  /* opacity: .8;*/
+  border: solid var(--color-brown) 3px;
+  /* background-color: var(--color-brown); */
+  /* color: white; */
+  /* border-color: white; */
+}

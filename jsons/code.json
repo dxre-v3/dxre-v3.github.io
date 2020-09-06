@@ -1,0 +1,93 @@
+{
+  "description": "Bits of HTML, CSS, JS and other languages",
+  "content": [
+    {
+    "tab" : true,
+    "title": "TacoBots",
+    "date": "8.20.2020",
+    "link": "https://github.com/texastribune/tacobots#-tacobots--",
+    "picture": "/code/pictures/tacobot.png",
+    "quote": "The open source repository of The Texas Tribune's Slack bots contains not only an AWS lambda functions for each bot, but also a limerick."
+
+  },
+    {
+    "tab" : true,
+    "title": "North By Northwestern Housing Guide",
+    "date": "6.5.2020",
+    "link": "https://northbynorthwestern.com/housing-guide-2020/",
+    "picture": "/code/pictures/h_guide.png",
+    "quote": "This simple guide to the Northwestern's  housing combines classic information with an updated filtering system and compatibility calculation. "
+
+  },
+    {
+    "tab" : true,
+    "title": "North By Northwestern Winter Magazine: 2020",
+    "date": "5.5.2020",
+    "link": "https://www.northbynorthwestern.com/winter-2020-magazine/",
+    "picture": "/code/pictures/winter_mag.jpg",
+    "quote": "The simple compilation of North By Northwestern's winter magazine articles."
+
+  },
+    {
+    "tab" : true,
+    "title": "Political Quiz",
+    "date": "1.24.2020",
+    "link": "http://northbynorthwestern.com/political-quiz-2020/",
+    "picture": "/code/pictures/quiz.png",
+    "quote": "A political quiz created with NBN Interactive Staff and the Political Section of NBN."
+
+    },
+    {
+      "tab" : true,
+      "title": "Scrolling Webpage",
+      "date": "12.23.2019",
+      "link": "http://northbynorthwestern.com/street-carts/",
+      "picture": "/code/pictures/woman_in_coat.jpg",
+      "quote": "A scrolling article design with a incorporated video."
+    },
+    {
+    "tab" : false,
+    "title": "R Tutorial: UFO Bar Chart Challenge",
+    "date": "12.10.19",
+    "link": "/code/rtut_bar_challenge.html",
+    "picture": "/code/pictures/ufo2.png",
+    "quote": "An series of chart challenges using a cleaned ufos data set. Designed for RStudio Cloud."
+
+  },
+  {
+  "tab" : false,
+  "title": "R Tutorial: UFOs",
+  "date": "12.10.19",
+  "link": "/code/rtut_ufos.html",
+  "picture": "/code/pictures/ufo.png",
+  "quote": "An quick introduction to R and RStudio Cloud using a cleaned ufos data set."
+
+  },
+    {
+      "tab": true,
+      "title": "Leaflet Map",
+      "date": "5.25.2019",
+      "link": "http://northbynorthwestern.com/buildings-ranked/",
+      "picture": "/code/pictures/map.png",
+      "quote": "An interactive map of Northwestern built using Leaflet."
+    },
+    {
+      "tab": true,
+      "title": "CodePen",
+      "link": "https://codepen.io/collection/DBwjrP/",
+      "date": "5.10.2018",
+      "picture": "/code/pictures/codepen.png",
+      "quote": "A small collection of HTML and CSS builds begining in 2018."
+    }
+  ],
+"unpublished": [
+        {
+      "tab": false,
+      "title": "Stereographic Point Clouds",
+      "date": "12.10.2018",
+      "link": "/code/stereo",
+      "picture": "/code/pictures/stereo.png",
+      "quote": "A short explanation and example of turning a pair of sterographic images into a three dimensional point cloud."
+    }
+  ]
+}

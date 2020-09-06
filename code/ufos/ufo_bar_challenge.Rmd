@@ -1,0 +1,444 @@
+---
+title: "R Tutorial: UFO Bar Chart Challenge"
+author: "Avriana Allen"
+date: "Last Updated: Dec. 10, 2019"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapse: true
+    code_folding: hide
+---
+
+<head>
+
+<link rel="stylesheet" href="https://cdn.knightlab.com/libs/orangeline/0.1.1/css/orangeline.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body{
+font-family: Montserrat;
+}
+
+pre:not(.r) .hljs{
+color: #484848;
+}
+
+ol > li::marker{
+font-size: 0em;
+}
+
+.title{
+width:100%;
+font-size: 3em !important;
+text-align: center;
+}
+.author {
+font-family: Montserrat;
+text-align: right;
+}
+
+.date {
+font-family: Montserrat;
+text-align: right;
+}
+
+h1 > .intro{
+color: #df4e13;
+}
+
+img{
+display: inline-block;
+padding: 15px 0px 15px 0px;
+}
+
+</style>
+
+</head>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, error = FALSE, warning = FALSE)
+```
+
+# <span class = "intro"> Welcome to R! </span>
+
+## Purpose of this tutorial 
+
+R is a great resource that has extremely good documentation, including several free books that systematically teach users the basics and then some. This tutorial is not meant to replace any such resources but to provide an opportunity to practice your skills in **R** and **R Studio** by building bar charts. If you are interested in learning more **R** there will be a recommended book list [at the end](#booklist). 
+
+##  Skill Level
+
+It is recommended that you have used **R** and the **Tidyverse** before. If you are new to **R** or the **Tidyverse**, we'd recommend starting with the [UFOs Tutorial](https://dxre-v3.github.io/data/ufos/ufo_tutorial){target="_blank"}. 
+
+## Proper use of tutorial
+
+This tutorial is meant to test your skills and knowledge of **R** and the **Tidyverse**. While the code for each graph is available, it will be hidden to begin with. Try to recreate each graph using just the information given on it before looking at the original code. 
+
+# Preparing your environment
+
+If you already have set up a R Studio Account or are using R Studio, you can skip to [loading in your libraries](#load-libraries)
+
+## R Studio Cloud
+
+To complete this tutorial, you will need to create an account with [RStudio Cloud](https://rstudio.cloud/){target="_blank"} so navigate to [their homepage ](https://rstudio.cloud/){target="_blank"} and click *Get Started*.
+
+Once you've made your account, you will be navigated to *Your Workspace*. Click the blue *New Project* button to the right of *Your Projects* and wait for the *Deploying Project* bubbles to disappear.
+
+## R Script
+
+Under *File* highlight *New File* and select *R Script*. 
+
+<img src="new_rfile.png">
+
+Go ahead and save the file. This will be where we will be executing all our commands.
+
+<img src="save_file.png">
+
+## Set up the environment
+
+Open *Tools* and click on *Global Options*. There will be four sections, *R Sessions*, *Workspace*, *History* and *Other*. Under *Workspace*, uncheck 
+ `Restore .RData into workspace at startup` and change `Save workspace to .RData on exit` to `never`. Hit *Ok* to save and exit. 
+ 
+<img src="enviroment.png">
+
+By changing these options, we are making it a little harder to pick up where you left off in a project after you close it, but this will make your code reproducible, allowing you to get the same results every time you run your code. 
+
+<p class = "note"> All of the functions we will be using are well documented. If you ever have questions, run them in the console, (lower left pane) with a `?`in front, e.g. `?help()`</p>
+
+# **R** and Data
+
+<span id = "load-libraries"></span>
+
+## Load your libraries
+
+This tutorial will be using the `tidyverse`, `ggstance` and `ggthemes`. If you don't have a library installed, you can install it with a console command (i.e. `install.packages("tidyverse")`). 
+
+```{r library.1, message=TRUE}
+library(tidyverse)
+library(ggstance)
+library(ggthemes)
+```
+
+<p class = "note"> You only need to install packages once, after that you can always load them for use using the `library()` call. </p>
+
+## Loading data 
+
+We will be working with a semi-cleaned version of a UFO data set from [Kaggle](https://www.kaggle.com/camnugent/ufo-sightings-around-the-world){target="_blank"}. The original data set can be found [here](https://github.com/planetsig/ufo-reports){target="_blank"}. We will be only looking at data for the US. You can get the zipped file here: [ufos.zip](https://dxre-v3.github.io/data/ufos/ufos.zip){target="_blank"}. **R Studio Cloud** only takes data in a zipped format, so we will upload the data set into our environment as a zip file.
+
+Under the *Files* tab in the lower right pane, click on *Upload* button. Find
+the zipped file called `ufos` on your computer and upload it. You should see `ufos.csv` appear in your files.
+
+<img src = "upload_file.png">
+
+Read in the csv as a tibble, which is a slightly more flexible version of a data frame and store it as a variable which we will use to call it for the rest of the lab. 
+
+```{r import-data}
+ufos <- as_tibble(read_csv("ufos.csv"))
+```
+
+You will get a print out that looks similar to the one below. 
+
+<img src = "error_data_load.png">
+
+You can ignore it. 
+
+You should see `ufos` show up as data set in your *Global Environment* on the upper right pane of your screen. If you click on it, you will open the data in a new tab.
+
+## Look at our data
+
+Let's take a quick look at our data using `glimpse()`, which will give us a compressed view of the data. Take note of the categorical and numerical types of entries; we will be using most of these later.
+
+```{r view.1}
+glimpse(ufos)
+```
+   
+<br>
+
+# Time series 
+
+Being able to work with time is an important skill when it comes to data. It also tends to work well with bar charts. The plots below will start with some basic graphs over time and move into specific filtering. These plots will be using some styling elements, and each will have a theme. 
+
+## Observations by year
+```{r t1}
+ufos %>% 
+  ggplot(aes(year)) +
+  geom_bar(fill = "steelblue") +
+  theme_clean() +
+  labs(
+    subtitle = "Observations by year",
+    caption = "Theme: theme_clean"
+  )
+```
+
+**Hint**: Look at the names of the variables on the x and y axis. How can we get our bar chart to have those names? 
+
+<p class="note">Want to add labels to your graphs? Use `labs()` with `title`, `subtitle`, `caption`, `x` and `y`. Want to change the color of your graph? Use any hex code or a name from `colors()`.</p>
+
+
+## Observations since 1975
+```{r t2}
+ufos %>% 
+  filter(
+    year >= 1975
+  ) %>% 
+  ggplot(aes(year)) +
+  geom_bar(fill = "steelblue") +
+  theme_clean() +
+  labs(
+    subtitle = "Observations since 1975",
+    caption = "Theme: theme_clean"
+  )
+```
+
+**Hint**: `year` is currently being read as numerical. How can we use that to our advantage when we filter it? 
+
+
+## Observations between 1975 and 2000
+```{r t3}
+ufos %>% 
+  filter(
+    between(year, 1975, 2000)
+  ) %>% 
+  ggplot(aes(year)) +
+  geom_bar(fill = "steelblue") +
+  theme_clean() +
+  labs(
+    subtitle = "Observations between 1975 and 2000",
+    caption = "Theme: theme_clean"
+  )
+```
+
+**Hint**: `?between()` 
+
+## Observations since 1975 for Colorado (co)
+```{r t4}
+ufos %>% 
+  filter(
+    year >= 1975,
+    state == "co"
+  ) %>% 
+  ggplot(aes(year)) +
+  geom_bar(fill = "steelblue") +
+  theme_clean() +
+  labs(
+    subtitle = "Observations since 1975 for Colorado (co)",
+    caption = "Theme: theme_clean"
+  )
+```
+
+
+
+
+## By Month
+```{r t5}
+ufos %>% 
+  ggplot(aes(as.factor(month))) +
+  geom_bar(fill = "steelblue") +
+  theme_clean() +
+  labs(
+    subtitle = "Observations by month",
+    caption = "Theme: theme_clean"
+  )
+
+```
+
+
+## By Month between 2000 and 2002
+```{r t6}
+ufos %>% 
+  filter(
+    between(year, 2000, 2002)
+  ) %>% 
+  ggplot(aes(as.factor(month))) +
+  geom_bar(aes(fill = as.factor(year)), position = "dodge") +
+  theme_fivethirtyeight() +
+  labs(
+    subtitle = "Observations by Month and year between 2000 and 2002",
+    caption = "Theme: theme_fivethirtyeight
+    Fill: scale_fill_fivethirtyeight"
+  ) +
+  scale_fill_fivethirtyeight()
+```
+
+
+# State and Shape  
+
+Another common plot you will come across, which we tried out in the last plot is two variables, colored by a third variable. The following plots will be doing a lot of counting and filtering. They will also be using the `geom_barh()` from the **ggstance** package.
+
+## States with more than 1K UFO sightings
+
+```{r ss1} 
+ufos %>% 
+  count(state) %>% 
+  filter(n > 1000) %>% 
+  ggplot(aes(n, reorder(state, n))) +
+  geom_barh(stat = "identity", 
+            fill = "indianred4",
+            color = "black") +
+  labs(
+    subtitle = "States with more than 1K UFO sightings",
+    caption = "Theme: theme_gdocs"
+  ) +
+  theme_gdocs()
+```
+
+
+
+## States with less than 500 UFO sightings
+```{r ss2}
+ufos %>% 
+  count(state) %>% 
+  filter(n < 500) %>% 
+  ggplot(aes(n, reorder(state, n))) +
+  geom_barh(stat = "identity",
+            fill = "indianred4",
+            color = "black") +
+  labs(
+    subtitle = "States with less than 500 UFO sightings",
+    caption = "Theme: theme_gdocs"
+  ) +
+  theme_gdocs()
+
+```
+
+
+## Create a useful data set 
+
+For the next four graphs, we want to focus on the shapes of UFOs. However, since there are a lot of shapes, we will only look at the top 5. 
+
+```{r ss-data1}
+ufos %>%  count(shape) %>% arrange(desc(n))
+```
+
+To make the data set, we need to filter so we only have observations related to `light`, `triangle`, `circle`, `fireball` and `sphere`. We also added a row to our data set that contains the number of observations by state. 
+
+```{r ss-data2}
+ufos_shapes <- ufos %>%  
+  filter(  shape == "light" | 
+    shape == "triangle" | 
+    shape == "circle" |
+    shape == "fireball" |
+    shape == "sphere") %>% 
+  group_by(state) %>% 
+  mutate(n = n()) %>% 
+  ungroup()
+```
+
+
+## Number of Shapes in states with more than 1K UFO sightings
+
+```{r ss3}
+ufos_shapes %>%  
+  filter(n > 1000) %>% 
+  ggplot(aes(reorder(state, n))) +
+  geom_bar(aes(fill = shape)) +
+  labs(
+    subtitle = "States with more than 1K UFO sightings",
+    caption = "Theme: theme_gdocs 
+    Fill: scale_fill_gdocs"
+  ) +
+  theme_gdocs() +
+  scale_fill_gdocs() +
+  coord_flip()
+```
+
+
+## Number of Shapes in states with less than 500 UFO sightings
+
+```{r ss4}
+ufos_shapes %>% 
+  filter(n < 500) %>% 
+  ggplot(aes(reorder(state, n))) +
+  geom_bar(aes(fill = shape)) +
+  labs(
+    subtitle = "States with less than 500 UFO sightings",
+    caption = "Theme: theme_gdocs
+    Fill: scale_fill_gdocs"
+  ) +
+  theme_gdocs() +
+  scale_fill_gdocs()+
+  coord_flip()
+```
+
+
+
+## Colored by shapes
+```{r ss5}
+ufos_shapes %>% 
+  filter(  shape == "light" | 
+    shape == "triangle" | 
+    shape == "circle" ) %>% 
+  filter(n < 500) %>% 
+  ggplot(aes(reorder(state, n))) +
+  geom_bar(aes(fill = shape)) +
+  labs(
+    subtitle = "States with less than 500 UFO sightings",
+    caption = "Theme: theme_tufte
+    Fill: scale_fill_brewer(type = 'qual')",
+    x = "State",
+    y = "Observations"
+  ) +
+  theme_tufte() +
+  theme(legend.position = "none") +
+  facet_wrap(~shape) +
+  scale_fill_brewer(type = "qual") +
+  coord_flip()
+```
+
+**Hint**: Use `theme(legend.position = "none")` to remove the legend and take a look at `?facet_wrap()`.
+
+# Calculations 
+Another type of graph you will want to use is had calculated values. The best way to do this is with summarize:
+
+## Average time in minutes per shape
+
+```{r at}
+ufos_shapes %>% 
+  group_by(shape) %>% 
+  summarise(average_min = mean(duration..seconds./60)) %>% 
+  ungroup() %>%
+  ggplot(aes(shape, average_min)) +
+  geom_bar(fill = "#55752f",
+           color ="grey9",
+           stat = "identity") +
+  theme_pander() +
+  labs(
+    title = "Average minutes per shape",
+    caption = "Calculated with duration..seconds. using ufo_shapes 
+    theme: theme_pander
+    fill: #55752f
+    color: grey9"
+  )
+```
+
+**Hint**: Use `summarise()` and `mean()`
+
+# Appendix
+
+<p class = "intro"> Congratulations on finishing the tutorial! Now see if you can think up and answer some of your own questions! </p>
+
+## Download **R**
+Did you love **R**? You can download it onto your computer for unlimited and offline use!
+
+* **R** here: [https://cran.cnr.berkeley.edu/](https://cran.cnr.berkeley.edu/){target="_blank"}
+* **R Studio** here: [https://rstudio.com/products/rstudio/](https://rstudio.com/products/rstudio/){target="_blank"}
+
+## Learn More **R**
+
+Delve a little deeper into **R** with one of these books:
+
+<span id = "booklist"></span>
+
+* Hadley Wickham Books: 
+  + [R for Data Science](https://r4ds.had.co.nz/){target="_blank"}
+  + [Advanced R](https://adv-r.hadley.nz/){target="_blank"}
+  + [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/index.html){target="_blank"}
+  
+* [R for Journalists](https://learn.r-journalism.com/en/){target="_blank"}
+* [R Cookbook, 2nd Ed](https://rc2e.com/index.html){target="_blank"}
+* [Another list of free online books about R](http://cmdlinetips.com/2018/01/free-online-resources-books-to-learn-r-and-data-science/){target="_blank"}
+
+
