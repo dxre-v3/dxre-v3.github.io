@@ -3,10 +3,26 @@
   "content": [
     {
       "tab": false,
+      "title": "College Results",
+      "date": "6.12.2020",
+      "link": "/data/college-scorecard",
+      "picture": "/data/pictures/graph_college.png",
+      "quote": "Is it possible to predict college loan repayment using the College Scorecard data? What are the indicators of a high repayment rate?"
+    },
+    {
+      "tab": false,
+      "title": "How to Buy a House as a Data Scientist",
+      "date": "8.15.2020",
+      "link": "/data/recs",
+      "picture": "/data/pictures/recs-graph.png",
+      "quote": "An attempt to predicting heating costs using the 2015 Residential Energy Consumption Survey."
+    },
+    {
+      "tab": false,
       "title": "Crime in LA",
       "date": "12.20.2019",
-      "link": "https://dxre-v3.github.io/data/la-crime",
-      "picture": "https://dxre-v3.github.io/data/pictures/la.png",
+      "link": "/data/la-crime",
+      "picture": "/data/pictures/la.png",
       "quote": "An exploration of LA crime data over the past 10 years."
     },
     {
@@ -14,15 +30,15 @@
       "title": "Divvy Bike Data",
       "date": "6.7.2019",
       "link": "https://dxre-v3.shinyapps.io/evanston-divvy/",
-      "picture": "https://dxre-v3.github.io/data/pictures/divvy-graph.png",
+      "picture": "/data/pictures/divvy-graph.png",
       "quote": "In 2018 Evanston had over 26,000 unique bike rides. Explore the trends over time with this app built with Shiny and ggplot2 in R."
     },
     {
       "tab": false,
       "title": "California Conservation",
-      "link": "http://dxre-v3.github.io/data/cali",
+      "link": "/data/cali/index",
       "date": "3.17.2019",
-      "picture": "https://dxre-v3.github.io/data/pictures/cali-water.png",
+      "picture": "/data/pictures/cali-water.png",
       "quote": "An exploration of California's available water data using Tableau."
     }
   ]

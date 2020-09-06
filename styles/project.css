@@ -1,0 +1,17 @@
+.container{
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+  "nav"
+  "project"
+}
+
+.project{
+  grid-area: project;
+}
+
+@media only screen and (max-width: 600px) {
+  .project{
+    padding: 2% 0px;
+  }
+}

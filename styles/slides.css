@@ -1,0 +1,28 @@
+.project{
+  display: grid;
+  grid-template-columns: auto 1000px;
+}
+
+
+
+.project iframe{
+  width: 960px;
+  height: 569px;
+  padding-top: 40px;
+}
+
+@media only screen and (max-width: 1350px) {
+  .project{
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+
+ }
+ .project iframe{
+   width: 100vw;
+   height: 60vw;
+   grid-row-start: 1;
+ }
+ .introduction{
+   grid-row-start: 2;
+ }
+}

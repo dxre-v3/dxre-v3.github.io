@@ -1,0 +1,89 @@
+
+.project{
+	display: flex;
+	justify-content: space-around;
+	padding: 25px 0px;
+	/* background-color: var(--color-navy);
+	color: white; */
+}
+.picture{
+	width: 35%;
+	margin: 1%;
+}
+.picture > img{
+	width: 100%;
+	border-radius: 10px;
+	border: solid var(--color-navy) 5px;
+}
+.info{
+	width:55%;
+	margin: 1%;
+	background-color: var(--color-navy);
+	color: white;
+	border-radius: 10px;
+	padding: 25px;
+	display: flex;
+	flex-direction: column;
+}
+h1{
+	text-align: center;
+}
+
+.links{
+	display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+}
+
+.links > a{
+	width: 25%;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+}
+.links > a:hover{
+	color: white;
+	background-color: rgba(255,255,255, .25);
+	border-radius: 10px;
+}
+
+h3{
+	background: var(--color-brown);
+	padding: 5px 5px 5px 15px;
+	margin: 5px;
+	border-radius: 10px;
+}
+.pad{
+	padding: 15px 30px;
+}
+@media only screen and (max-width: 600px){
+	.project{
+		flex-wrap: wrap;
+	}
+	.picture{
+	width: 75%;
+	height: 250px;
+	overflow-y:hidden;
+	border-radius: 10px;
+	border: solid var(--color-navy) 5px;
+	margin-bottom: 30px;
+	/* border: solid var(--text-color) 4px; */
+	}
+
+	.picture > img{
+	width: 100%;
+	border-radius: 0px;
+	border: none;
+
+}
+.about-name{
+	line-height:45px;
+
+}
+.info{
+	width: 90%;
+}
+.links > a{
+	width: 45%;
+	padding: 5px 0px 5px 0px;
+}
+}
