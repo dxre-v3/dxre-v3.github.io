@@ -2,6 +2,14 @@
   "description": "A collection of published pieces and presentations",
   "content": [
     {
+      "tab": true,
+      "title": "Virtually Alone",
+      "date": "9.7.2020",
+      "link": "http://helicon.northwestern.edu/virtually-alone/",
+      "picture": "/stories/pictures/zoom.png",
+      "quote": "Written on April 23, 2020, after I spent more than half an hour alone on a Zoom call, this poem captures the feeling of empty virtual space."
+    },
+    {
       "tab": false,
       "title": "Making Editors Happy",
       "date": "8.21.2020",
