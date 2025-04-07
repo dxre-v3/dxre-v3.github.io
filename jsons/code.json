@@ -2,6 +2,106 @@
   "description": "Bits of HTML, CSS, JS and other languages",
   "content": [
     {
+      "tab" : true,
+      "title": "Archive Pages",
+      "date": "TK",
+      "link": "https://calmatters.org/category/education/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Mailchimp Bots",
+      "date": "TK",
+      "link": "https://github.com/CalMatters/mailchimp-bots",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Digital Democracy",
+      "date": "TK",
+      "link": "https://calmatters.digitaldemocracy.org/legislators/scott-wiener-100936",
+      "second-link": "https://calmatters.org/economy/technology/2024/08/ai-safety-bill-california-legislature/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Homepage",
+      "date": "TK",
+      "link": "https://calmatters.org/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Guest Authors",
+      "date": "TK",
+      "link": "https://github.com/texastribune/tacobots#-tacobots--",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Republishing Modal",
+      "date": "TK",
+      "link": "https://github.com/texastribune/tacobots#-tacobots--",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "2024 Voter Guide",
+      "date": "TK",
+      "link": "https://github.com/texastribune/tacobots#-tacobots--",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "2022 Voter Guide",
+      "date": "TK",
+      "link": "https://github.com/texastribune/tacobots#-tacobots--",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Events",
+      "date": "TK",
+      "link": "https://calmatters.org/events/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Navigation",
+      "date": "TK",
+      "link": "https://calmatters.org/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
+      "tab" : true,
+      "title": "Series",
+      "date": "TK",
+      "link": "https://calmatters.org/series/",
+      "picture": "/code/pictures/bars-solid.svg",
+      "quote": "TK"
+  
+    },
+    {
     "tab" : true,
     "title": "TacoBots",
     "date": "8.20.2020",
@@ -46,23 +146,23 @@
       "quote": "A scrolling article design with a incorporated video."
     },
     {
-    "tab" : false,
-    "title": "R Tutorial: UFO Bar Chart Challenge",
-    "date": "12.10.19",
-    "link": "/code/rtut_bar_challenge.html",
-    "picture": "/code/pictures/ufo2.png",
-    "quote": "An series of chart challenges using a cleaned ufos data set. Designed for RStudio Cloud."
+      "tab" : false,
+      "title": "R Tutorial: UFO Bar Chart Challenge",
+      "date": "12.10.19",
+      "link": "/code/rtut_bar_challenge.html",
+      "picture": "/code/pictures/ufo2.png",
+      "quote": "An series of chart challenges using a cleaned ufos data set. Designed for RStudio Cloud."
 
-  },
-  {
-  "tab" : false,
-  "title": "R Tutorial: UFOs",
-  "date": "12.10.19",
-  "link": "/code/rtut_ufos.html",
-  "picture": "/code/pictures/ufo.png",
-  "quote": "An quick introduction to R and RStudio Cloud using a cleaned ufos data set."
+    },
+    {
+      "tab" : false,
+      "title": "R Tutorial: UFOs",
+      "date": "12.10.19",
+      "link": "/code/rtut_ufos.html",
+      "picture": "/code/pictures/ufo.png",
+      "quote": "An quick introduction to R and RStudio Cloud using a cleaned ufos data set."
 
-  },
+    },
     {
       "tab": true,
       "title": "Leaflet Map",
