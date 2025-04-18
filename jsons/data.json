@@ -32,7 +32,9 @@
       "link": "https://dxre-v3.shinyapps.io/evanston-divvy/",
       "picture": "/data/pictures/divvy-graph.png",
       "quote": "In 2018 Evanston had over 26,000 unique bike rides. Explore the trends over time with this app built with Shiny and ggplot2 in R."
-    },
+    }
+  ],
+  "unpublished": [
     {
       "tab": false,
       "title": "California Conservation",

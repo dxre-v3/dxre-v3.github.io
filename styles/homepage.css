@@ -4,7 +4,8 @@ div, section, article, nav, footer{
 
 .grid-display{
   display: grid;
-  grid-template-columns: repeat(6, 16.6%);
+  /* grid-template-columns: repeat(6, 16.6%); */
+  grid-template-columns: 23.2% repeat(4, 13.4%) 23.2%;
   grid-template-rows: auto auto auto;
   grid-template-areas:
   "title title title title title title"
@@ -16,20 +17,22 @@ div, section, article, nav, footer{
   grid-area: title;
   font-family: Raleway;
   text-align: center;
-  padding: 10px;
-  width: 67%;
-  margin-left: 16.5%;
+  padding: 10px 10% 20px; 
+  /* width: 67%; */
+  /* margin-left: 16.5%; */
   margin-bottom: 30px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   border: 3px var(--color-brown) solid;
 }
 
-.title:hover{
+/* .title:hover{
   background-color: white;
   color: var(--color-brown);
-
+} */
+.blurb{
+  max-width: 67%;
+  margin: auto;
 }
-
 .name{
     font-size: 75px;
 }
@@ -40,23 +43,29 @@ nav{
   padding-bottom: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
+  justify-content: center;
   align-items: center;
+  row-gap: 4px;
 }
 
 .label{
-  padding: 10px;
+  /* padding: 10px;
   margin: 10px;
-  margin-left: 5%;
-  border-radius: 10px;
+  
+  border-radius: 10px; */
+  /* margin-left: 5%; */
   text-align: center;
-  width:65%;
-  border: solid var(--color-white) 3px;
+  width: 75%;
+  /* max-width: 90%; */
+  /* border: solid var(--color-white) 3px; */
 }
 
 .label h1{
   border-radius: 10px;
-  margin-bottom: 10px;
+  padding: 4px;
+  font-size: var(--large);
+  /* margin-bottom: 10px; */
 }
 
 .label p{
@@ -75,43 +84,44 @@ footer{}
   @media only screen and (max-width: 1100px) {
 
     .grid-display{
-      grid-template-areas:
-      "title title title title title title"
-      " nav-links nav-links nav-links animation animation animation "
-      "footer footer footer footer footer footer ";
+      grid-template-columns: 10% repeat(4, 20%) 10%;
     }
-    .title{
+    .blurb{
+      max-width: none;
+    }
+    /* .title{
         padding: 1%;
         width: 98%;
         border-radius: 0px;
         margin-left: 0px;
         border: none;
-    }
+    } */
   }
   @media only screen and (max-width: 700px) {
     .grid-display{
       grid-template-columns: 100%;
       grid-template-rows: auto auto auto auto;
       grid-template-areas:
-
       "title"
       "animation"
       "nav-links"
-
       "footer";
     }
-  .name{
-        font-size: var(--large);
-        padding: 5px;
+    .title{
+      padding: 15px 3% 20px;
     }
-  h5{
-    font-size: var(--small);
-    padding: 5px 10px;
-  }
-  h1 {
-    font-size: var(--medium-plus);
-  }
-  body{
-    font-size: var(--small)
-  }
+    .name{
+      font-size: var(--large);
+      padding: 5px;
+    }
+    h5{
+      font-size: var(--small);
+      padding: 5px 10px;
+    }
+    h1 {
+      font-size: var(--medium-plus);
+    }
+    body{
+      font-size: var(--small)
+    }
   }

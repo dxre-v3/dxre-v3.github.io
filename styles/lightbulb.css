@@ -83,8 +83,9 @@ svg{
 }
 
 .active{
-  /* opacity: .8;*/
-  border: solid var(--color-brown) 3px;
+  opacity: .8;
+  cursor: pointer;
+  /* border: solid var(--color-brown) 3px; */
   /* background-color: var(--color-brown); */
   /* color: white; */
   /* border-color: white; */
