@@ -26,6 +26,7 @@ function createContent(d){
       newTab = "_self"
       // console.log(`ITEM: ${p.title} \n TAB: ${p.tab} \n CLAIM: false`);
     }
+    imageStyle = p.istyle ? p.istyle : "";
     $('article')
       .append($(`<a>`)
                   // .attr('class', "hxl")
@@ -40,7 +41,7 @@ function createContent(d){
                               .attr('class', 'content')
                               .append($(`<div>`)
                                         .attr('class', 'image-box')
-                                        .append($(`<img>`).attr('class', 'item-image').attr('src', p.picture)))
+                                        .append($(`<img>`).attr('class', `item-image ${imageStyle}`).attr('src', p.picture)))
                               .append($(`<div>`)
                                         .attr('class', 'item-description')
                                         .append($(`<h3>`).attr('class', 'item-title').text(p.title))

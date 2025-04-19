@@ -2,48 +2,160 @@
   "description": "Bits of HTML, CSS, JS and other languages",
   "content": [
     {
-    "tab" : true,
-    "title": "TacoBots",
-    "date": "8.20.2020",
-    "link": "https://github.com/texastribune/tacobots#-tacobots--",
-    "picture": "/code/pictures/tacobot.png",
-    "quote": "The open source repository of The Texas Tribune's Slack bots contains not only an AWS lambda functions for each bot, but also a limerick."
-
-  },
+      "tab" : true,
+      "title": "Republishing",
+      "date": "2025",
+      "link": "https://calmatters.org/education/higher-education/2025/02/cal-state-budget-3/#:~:text=FEBRUARY%2011%2C%202025-,Republish,-The%20quad%20at",
+      "picture": "/code/pictures/republish.webp",
+      "istyle": "smaller",
+      "quote": "A simple button that, when clicked, shares the republishing guidelines and an option to copy the automatically generated, guideline-compliant HTML."
+    },
     {
-    "tab" : true,
-    "title": "North By Northwestern Housing Guide",
-    "date": "6.5.2020",
-    "link": "http://old.northbynorthwestern.com/housing-guide-2020/",
-    "picture": "/code/pictures/h_guide.png",
-    "quote": "This simple guide to the Northwestern's  housing combines classic information with an updated filtering system and compatibility calculation. "
-
-  },
+      "tab" : true,
+      "title": "Mailchimp Slack Bots",
+      "date": "2025",
+      "link": "https://github.com/CalMatters/mailchimp-bots",
+      "picture": "/code/pictures/slackbot.webp",
+      "quote": "An open-source repository containing bots which post MailChimp newsletter metrics into Slack."
+    },
     {
-    "tab" : true,
-    "title": "North By Northwestern Winter Magazine: 2020",
-    "date": "5.5.2020",
-    "link": "http://old.northbynorthwestern.com/winter-2020-magazine/",
-    "picture": "/code/pictures/winter_mag.jpg",
-    "quote": "The simple compilation of North By Northwestern's winter magazine articles."
-
-  },
+      "tab" : true,
+      "title": "2024 Voter Guide",
+      "date": "2024",
+      "link": "https://calmatters.org/california-voter-guide-2024/",
+      "picture": "/code/pictures/2024.webp",
+      "istyle": "smaller navy-background p10",
+      "quote": "Viewed by millions of Californians, this guide iterates on the 2022 version to provide clearer navigation and a focused reading experience."
+    },
     {
-    "tab" : true,
-    "title": "Political Quiz",
-    "date": "1.24.2020",
-    "link": "http://old.northbynorthwestern.com/housing-guide-2020/",
-    "picture": "/code/pictures/quiz.png",
-    "quote": "A political quiz created with NBN Interactive Staff and the Political Section of NBN."
+      "tab" : true,
+      "title": "CalMatters' Homepage",
+      "date": "2024",
+      "link": "https://calmatters.org/",
+      "picture": "/code/pictures/cm_homepage.webp",
+      "istyle": "smaller",
+      "quote": "Previously unbearable on tablet, the homepage redesign simplifies and standardizes the sections, even highlighting the donation ask."
+    },
+    {
+      "tab" : true,
+      "title": "Digital Democracy",
+      "date": "2023",
+      "link": "https://calmatters.digitaldemocracy.org/",
+      "picture": "/code/pictures/digidem.webp",
+      "quote": "Behind the scenes, queryable custom taxonomies allow legislator and bill pages to promote recent CalMatters stories."
+    },
+    {
+      "tab" : true,
+      "title": "Legislator Cards",
+      "date": "2023",
+      "link": "https://calmatters.org/politics/capitol/2024/03/retail-theft-bill-california-democrats/#:~:text=Learn%20more%20about%20legislators%20mentioned%20in%20this%20story.",
+      "picture": "/code/pictures/leg_card.webp",
+      "istyle": "smaller",
+      "quote": "Designed to connect directly to Digital Democracy, these cards are built on a custom taxonomy, making them easy to insert and update."
+    },
+    {
+      "tab" : true,
+      "title": "2022 Voter Guide",
+      "date": "2022",
+      "link": "https://calmatters.org/california-voter-guide-2022/",
+      "istyle": "smaller white-background p10",
+      "picture": "/code/pictures/2022.webp",
+      "quote": "Delivered on a tight deadline to make the primaries, this guide combined ACF blocks and native elements to simplify the editorial workflow."
+    },
+    {
+      "tab" : true,
+      "title": "Guest Author Override",
+      "date": "2022",
+      "link": "https://calmatters.org/commentary/2025/03/urban-rural-divide-substance-abuse/#:~:text=MARCH%2021%2C%202025-,BY%20TRACY%20NGUYEN,-Republish",
+      "picture": "/code/pictures/guest.webp",
+      "istyle": "smaller",
+      "quote": "A custom field that allows editors to display guest author names on archive pages and articles instead of \"Guest Commentary\"."
+    },
+    {
+      "tab" : true,
+      "title": "Archive Pages",
+      "date": "2023",
+      "link": "https://calmatters.org/author/mikhailzinshteyn/",
+      "picture": "/code/pictures/archive.webp",
+      "istyle": "smaller",
+      "quote": "What started as a new layout for categories became the standard for all archive pages (tags, authors, custom taxonomies) with some minimal adjustments where needed."
+    },
+    {
+      "tab" : true,
+      "title": "Navigation",
+      "date": "7.2023",
+      "link": "https://calmatters.org/category/politics/",
+      "picture": "/code/pictures/navigation.webp",
+      "istyle": "smaller",
+      "quote": "Moving away from the classic slide-out sidebar menu, rebuilding the navigation included restyling the footer, adding a full-screen hamburger menu, and introducing the topics bar."
+    },
+    {
+      "tab" : true,
+      "title": "Series",
+      "date": "2021",
+      "link": "https://calmatters.org/series/",
+      "picture": "/code/pictures/series.webp",
+      "istyle": "smaller",
+      "quote": "Presented to users as a stylized framework that connects stories together, this custom taxonomy allowed editors to publish articles using posts instead of a custom post type."
+    },
+    {
+      "tab" : true,
+      "title": "2021 Recall Voter Guide",
+      "date": "8.2021",
+      "link": "https://calmatters.org/voting-california-recall-election/",
+      "picture": "/code/pictures/recall_cm.png",
+      "quote": "Built to work with the CMS instead of against it, this guide was one of the first steps CalMatters took to simplify voter guide creation."
+    },
+    {
+      "tab" : true,
+      "title": "HTML Sitemap",
+      "date": "2021",
+      "link": "https://calmatters.org/sitemap/",
+      "picture": "/code/pictures/sitemap.webp",
+      "istyle": "smaller",
+      "quote": "This seemingly simple page automatically connects to the WordPress archives through a custom template and rewrite rules."
+    },
+    {
+      "tab" : true,
+      "title": "TacoBots",
+      "date": "8.20.2020",
+      "link": "https://github.com/texastribune/tacobots#-tacobots--",
+      "picture": "/code/pictures/tacobot.png",
+      "quote": "The open-source repository of The Texas Tribune's Slack bots contains not only an AWS lambda functions for each bot, but also a limerick."
+    },
+    {
+      "tab" : true,
+      "title": "North By Northwestern Housing Guide",
+      "date": "6.5.2020",
+      "link": "http://old.northbynorthwestern.com/housing-guide-2020/",
+      "picture": "/code/pictures/h_guide.png",
+      "quote": "This simple guide to the Northwestern's housing combines classic information with an updated filtering system and compatibility calculation. "
 
     },
     {
       "tab" : true,
-      "title": "Scrolling Webpage",
-      "date": "12.23.2019",
-      "link": "http://old.northbynorthwestern.com/street-carts/",
-      "picture": "/code/pictures/woman_in_coat.jpg",
-      "quote": "A scrolling article design with a incorporated video."
+      "title": "North By Northwestern Winter Magazine: 2020",
+      "date": "5.5.2020",
+      "link": "http://old.northbynorthwestern.com/winter-2020-magazine/",
+      "picture": "/code/pictures/winter_mag.jpg",
+      "quote": "The simple compilation of North By Northwestern's winter magazine articles."
+
+    },
+    {
+      "tab" : true,
+      "title": "Political Quiz",
+      "date": "1.24.2020",
+      "link": "http://old.northbynorthwestern.com/housing-guide-2020/",
+      "picture": "/code/pictures/quiz.png",
+      "quote": "A political quiz created with NBN Interactive Staff and the Political Section of NBN."
+    },
+    {
+        "tab" : true,
+        "title": "Scrolling Webpage",
+        "date": "12.23.2019",
+        "link": "http://old.northbynorthwestern.com/street-carts/",
+        "picture": "/code/pictures/woman_in_coat.jpg",
+        "quote": "A scrolling article design with an incorporated video."
     },
     {
       "tab" : false,
@@ -51,7 +163,7 @@
       "date": "12.10.19",
       "link": "/code/rtut_bar_challenge.html",
       "picture": "/code/pictures/ufo2.png",
-      "quote": "An series of chart challenges using a cleaned ufos data set. Designed for RStudio Cloud."
+      "quote": "A series of chart challenges using a cleaned ufos data set. Designed for RStudio Cloud."
     },
     {
       "tab" : false,
@@ -59,7 +171,7 @@
       "date": "12.10.19",
       "link": "/code/rtut_ufos.html",
       "picture": "/code/pictures/ufo.png",
-      "quote": "An quick introduction to R and RStudio Cloud using a cleaned ufos data set."
+      "quote": "A quick introduction to R and RStudio Cloud using a cleaned ufos data set."
     },
     {
       "tab": true,
@@ -67,7 +179,7 @@
       "link": "https://codepen.io/collection/DBwjrP/",
       "date": "5.10.2018",
       "picture": "/code/pictures/codepen.png",
-      "quote": "A small collection of HTML and CSS builds begining in 2018."
+      "quote": "A small collection of HTML and CSS builds beginning in 2018."
     }
   ],
 "unpublished": [

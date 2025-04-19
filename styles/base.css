@@ -95,8 +95,7 @@ article{
 .content{
   padding: 5px;
   display: inline-grid;
-  grid-template-columns: 110px auto;
-
+  grid-template-columns: 90px auto;
 }
 
 .image-box{
@@ -106,7 +105,12 @@ article{
 .item-image{
   border-radius: 10px;
   width: 100%;
-  }
+}
+.item-image.smaller{
+  max-width: 75%;
+  margin: auto;
+  display: block;
+}
 
 .item-title{
   padding:5px;
@@ -144,6 +148,9 @@ footer{
   }
   article{
     justify-content: space-around;
+  }
+  .content{
+    grid-template-columns: 75px auto;
   }
 }
 
