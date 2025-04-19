@@ -31,23 +31,26 @@ nav a{
 nav a:first-of-type{
   width: 29%;
 }
-#home:hover{
+nav h2{
+  border-radius: 10px;
+}
+:is(#home:hover, #home.active-background) h2{
   background: linear-gradient(90deg, rgba(20,29,39,1) 0%, rgba(42,77,101,1) 33%, var(--color-bluegreen) 66%, var(--color-lightgreen) 100%);
 }
 
-#about:hover{
+:is(#about:hover, #about.active-background) h2{
   background-color: var(--color-navy);
 }
 
-#stories:hover{
+:is(#stories:hover, #stories.active-background) h2{
   background-color: var(--color-blue);
 }
 
-#data:hover{
+:is(#data:hover, #data.active-background) h2{
   background-color: var(--color-bluegreen);
 }
 
-#code:hover{
+:is(#code:hover, #code.active-background) h2{
   background-color: var(--color-lightgreen);
 }
 
@@ -92,8 +95,7 @@ article{
 .content{
   padding: 5px;
   display: inline-grid;
-  grid-template-columns: 110px auto;
-
+  grid-template-columns: 90px auto;
 }
 
 .image-box{
@@ -103,7 +105,12 @@ article{
 .item-image{
   border-radius: 10px;
   width: 100%;
-  }
+}
+.item-image.smaller{
+  max-width: 75%;
+  margin: auto;
+  display: block;
+}
 
 .item-title{
   padding:5px;
@@ -141,6 +148,10 @@ footer{
   }
   article{
     justify-content: space-around;
+  }
+  .content{
+    grid-template-columns: 75px auto;
+  }
 }
 
 @media only screen and (max-width: 800px) {

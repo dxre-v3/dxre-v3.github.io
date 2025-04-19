@@ -8,10 +8,12 @@
 
 .project{
   grid-area: project;
+  margin-top: 40px;
 }
 
 @media only screen and (max-width: 600px) {
   .project{
     padding: 2% 0px;
+    margin-top: 20px;
   }
 }
