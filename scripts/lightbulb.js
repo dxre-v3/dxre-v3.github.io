@@ -129,7 +129,7 @@ randomItems();
 
   $('.trigger').on('click', function(e){
       $(this).removeClass('active');
-      window.location = `/${this.id}/index`;
+      window.location = `/${this.id}/`;
   });
 
   $('.trigger').on('mouseover', function(e){
